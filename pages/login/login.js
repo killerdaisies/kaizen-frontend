@@ -19,26 +19,27 @@ Page({
 
     var nickName = e.detail.userInfo.nickName;
     var avatarUrl = e.detail.userInfo.avatarUrl;
-    var description = e.detail.userInfo.province;
+    var city = e.detail.userInfo.province;
+
+    console.log(1,city)
 
     let user = {
-      "open_id": "2",
       "wechat_name": nickName,
-      "description": description,
-      "avatarUrl": avatarUrl
+      "city": city,
+      "avatar_url": avatarUrl
     }
 
     var users = app.globalData.users
-
+    console.log(11,app.globalData.userInfo)
     wx.request({
-      url: `Something API`,
+      url: `http://localhost:3000/api/v1/users`,
       method: 'POST',
       data: user,
       success() {
         console.log("he");
-        wx.reLaunch({
-          url: '/pages/landing/landing',
-        });
+        // wx.reLaunch({
+        //   url: '/pages/landing/landing',
+        // });
       }
     });
   },

@@ -1,0 +1,86 @@
+/* pages/landing/landing.wxss */
+.card-wrapper {
+  height: 320px;
+  position: relative;
+  left: 3px;
+  top: 6px;
+  display: inline-block;
+  width: 46%;
+  padding-bottom: 12px;
+  background-color: white;
+  border-radius: 8px 8px 10px 10px;
+  margin: 0 2% 0 1%;
+}
+
+.card-title{
+  border-bottom: solid grey;
+}
+
+.card-title .name{
+  font-size: 20px;
+}
+
+.card-mainInfo {
+  position: relative;
+  bottom: 10px;
+  right: 10px;
+  font-size: 10px;
+  text-align: right;
+  margin-top: 20rpx;
+}
+
+
+.weekly-schedule {
+  border: solid grey;
+  height: 200rpx;
+  color: grey;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50rpx;
+}
+
+.add-button {
+  height: 70rpx;
+  width: 70rpx;
+  top: 35%;
+  position: relative;
+}
+
+.button-container {
+  right: 0%;
+  position: absolute;
+  height: 200rpx;
+}
+
+.page-container{
+  border: solid grey;
+  height: 800px;
+  width: 95%;
+  top: 250rpx;
+  position: absolute;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-wrapper {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/index/index",
     "pages/logs/logs",
     "pages/login/login",
-    "pages/add/add"
+    "pages/add/add",
+    "pages/landing/landing"
   ],
   "window":{
     "backgroundTextStyle":"light",

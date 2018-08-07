@@ -1,0 +1,31 @@
+<!--pages/landing/landing.wxml-->
+
+<view class = "weekly-schedule">
+<!--   <view wx:for="{{events}}" wx:for-item="event" wx:key="event.id" lass="card-wrapper" data-event= "{{event}}">
+  <view class="card-calendar">
+       {{event.start_time}}
+  </view> -->
+<!-- </view> -->
+  <button bindtap="addTap" class="button-container">
+    <image class="add-button" src="../images/add.png" mode="scaleToFill"></image>
+  </button>
+</view>
+
+<view class="page-container">
+  <view wx:for="{{events}}" wx:for-item="event" wx:key="event.id" lass="card-wrapper" data-event= "{{event}}" >
+    <view class="card-title">
+      <view class="name">
+          {{event.description}}
+      </view>
+
+      <view class="card-mainInfo">
+
+        <view class="time">
+          {{event.start_time}} - {{event.end_time}}
+        </view>
+
+      </view>
+
+    </view>
+  </view>
+</view>

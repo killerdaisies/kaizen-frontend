@@ -4,7 +4,8 @@
     "pages/login/login",
     "pages/add/add",
     "pages/landing/landing",
-    "pages/show/show"
+    "pages/show/show",
+    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",

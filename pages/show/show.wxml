@@ -1,20 +1,45 @@
 <!--show.wxml-->
+<view class="image-container">
+  <view class="avatar-name">
+    {{wechat_name}}
+  </view>
+  <image class="avatar" src="{{avatar_url}}"></image>
+</view>
 <view class="page-container">
+  <view class="card-title">
+    <view class="name">
+        {{description}}
+    </view>
 
-    <view class="card-title">
-      <view class="name">
-          {{description}}
-          {{address}}
-          {{start_time}}
-      </view>
+    <view class="time">
+        {{start_time}}
+    </view>
 
-      <view class="card-mainInfo">
+    <view class="address">
+        {{address}}
+    </view>
+    <view class="card-mainInfo">
 
-        <view class="time">
-          {{start_time}} - {{end_time}}
-        </view>
-
+      <view class="time">
+        {{start_time}} - {{end_time}}
       </view>
 
     </view>
+  </view>
+
+  <view class ="list">
+    <button class= "list-button" bindtap="viewList">
+      <image class= "avatar-mini" src="../images/camera.png"></image>
+    </button>
+  </view>
+
+  <view class ="map">
+
+  </view>
+
+  <view class ="invite-button">
+    <button  style="margin-top:55rpx; padding-bottom:1rpx; width:95%" type="warning" form-type="submit" loading="{{loading}}">
+      Send Invite
+    </button>
+  </view>
 </view>

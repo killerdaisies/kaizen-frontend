@@ -6,7 +6,16 @@
 .card-title .name{
   font-size: 20px;
   padding: 10px;
-  /*padding-top: 20px;*/
+}
+
+.card-title .time{
+  font-size: 20px;
+  padding: 10px;
+}
+
+.card-title .address{
+  font-size: 20px;
+  padding: 10px;
 }
 
 .card-mainInfo {
@@ -20,11 +29,67 @@
 
 .page-container{
   border: solid grey;
-  height: 800px;
+  height: 500px;
   width: 95%;
   top: 250rpx;
   position: absolute;
   margin-top: 20rpx;
   display: flex;
   flex-direction: column;
+}
+
+.image-container{
+  width: 95%;
+  height: 20%;
+  top: 0%;
+  position: absolute;
+  border: solid grey;
+}
+
+.avatar{
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  border: solid grey;
+  bottom: 5%;
+  left: 2%;
+  position: absolute;
+}
+
+.avatar-mini{
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  border: solid grey;
+}
+
+.avatar-name{
+  border: solid grey;
+  height: 40px;
+  width: 120px;
+  left: 120px;
+  bottom: 5%;
+  position: absolute;
+}
+
+.list{
+  height: 80px;
+  width: 100%;
+  position: solid red;
+}
+
+.map{
+  height: 300rpx;
+  width: 100%;
+  border: solid green;
+  top: 50%;
+  position: absolute;
+}
+
+.invite-button{
+  height: 150rpx;
+  width: 100%;
+  bottom: 0%;
+  position: absolute;
+  border: solid blue;
 }

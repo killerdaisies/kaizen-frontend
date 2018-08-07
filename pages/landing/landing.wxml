@@ -12,7 +12,7 @@
 </view>
 
 <view class="page-container">
-  <view wx:for="{{events}}" wx:for-item="event" wx:key="event.id" lass="card-wrapper" data-event= "{{event}}" >
+  <view wx:for="{{events}}" wx:for-item="event" wx:key="event.id" bindtap="showItem" data-event= "{{event}}" >
     <view class="card-title">
       <view class="name">
           {{event.description}}
@@ -23,9 +23,7 @@
         <view class="time">
           {{event.start_time}} - {{event.end_time}}
         </view>
-
       </view>
-
     </view>
   </view>
 </view>

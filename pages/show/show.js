@@ -15,23 +15,29 @@ Page({
     console.log(options, 182774)
     let page = this;
     wx.request({
-      url: "https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/kaizenevents/${options.id}",
-      // url: "https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/events-id#!method=get",
-      method: 'GET',
-      success(res) {
-        console.log(222, res.data.events[0]);
-        const events = res.data.events;
-        page.setData({
-          events: events
-        });
-      // success(res) {
-      //   const item = res.data;
-
-      //   that.setData(
-      //     item
-      //   );
-      //   wx.hideToast();
+      // data: {
+      //   id: "",
+      //   address:"",
+      //   start_time:"",
+      //   end_time:"",
       // }
+      // url: "https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/kaizenevents/${options.id}",
+      url: "https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/events-id",
+      method: 'GET',
+      // success(res) {
+      //   console.log(222, res.data.events[0]);
+      //   const events = res.data.events;
+      //   page.setData({
+      //     events: events
+      //   });
+      success(res) {
+        const item = res.data;
+        console.log(res.data)
+        page.setData(
+          item
+        );
+        wx.hideToast();
+      }
     });
     // console.log(12, options.query)
     // this.setData(app.globalData)

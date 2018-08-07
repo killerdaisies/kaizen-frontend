@@ -1,21 +1,20 @@
 <!--show.wxml-->
 <view class="page-container">
-  <view wx:for="{{events}}" wx:for-item="event" wx:key="event.id" data-event= "{{event}}" >
+
     <view class="card-title">
       <view class="name">
-          {{event.description}}
-          {{event.address}}
-          {{event.capacity}}
+          {{description}}
+          {{address}}
+          {{start_time}}
       </view>
 
       <view class="card-mainInfo">
 
         <view class="time">
-          {{event.start_time}} - {{event.end_time}}
+          {{start_time}} - {{end_time}}
         </view>
 
       </view>
 
     </view>
-  </view>
 </view>

@@ -10,8 +10,10 @@ Page({
   },
 
   saveTap: function() {
-    let startDate = this.data.startDate
-    let endDate = this.data.endDate
+    let startDate = this.data.startDate;
+    let endDate = this.data.endDate;
+
+    console.log(23,this)
 
     wx.showModal({
       content: 'Confirm event?',
@@ -19,17 +21,9 @@ Page({
       cancelText: "No",
       success: function (res) {
         if (res.confirm) {
-          wx.request({
-            url: 'Some-API',
-            method: 'POST',
-            data: {
-              start_date: startDate,
-              end_date: endDate
-            }
+          wx.reLaunch({
+            url: '/pages/show/show'
           });
-          // wx.reLaunch({
-          //   url: '/pages/profile/profile'
-          // });
         } else {
           console.log("Staying on page")
         }
@@ -74,7 +68,9 @@ Page({
   },
 
   bindSubmit: function (e) {
-    console.log(23, e)
+    console.log(23, this)
+    console.log("e", e)
+    console.log("app",app)
     this.setData({
       loading: !this.data.loading
     });
@@ -82,21 +78,23 @@ Page({
     var description = e.detail.value.description
     var address = e.detail.value.address;
     var capacity = e.detail.value.capacity;
+    let startDate = this.data.startDate;
+    let endDate = this.data.endDate;
+    let id = app.globalData.userId;
 
-    var items = app.globalData.items
-
-    let item = {
+    let event = {
       "description": description,
       "address": address,
       "capacity": capacity,
-      "user_id": 37
-    }
+      "start_time": startDate,
+      "end_time": endDate,
+      "user_id": id
+    };
 
     wx.request({
-      url: `Some-API`,
+      url: `http://localhost:3000/api/v1/events`,
       method: 'POST',
-      data: item,
-
+      data: event,
       success: function(res) {
         // set data on index page and show
         console.log("he");
@@ -105,6 +103,22 @@ Page({
         // });
       }
     });
+
+    // wx.request({
+    //   url: 'http://localhost:3000/api/v1/bookings',
+    //   method: 'POST',
+    //   data: {
+    //     "user_id": id,
+    //     "event_id":
+    //   },
+    //   success: function (res) {
+    //     // set data on index page and show
+    //     console.log("hee");
+    //     // wx.navigateTo({
+    //     //   url: '/pages/editshow/editshow?id=' + res.data.id
+    //     // });
+    //   }
+    // });
   },
 
   onLoad: function (options) {

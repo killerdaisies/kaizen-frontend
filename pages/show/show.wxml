@@ -11,10 +11,6 @@
         {{description}}
     </view>
 
-    <view class="time">
-        {{start_time}}
-    </view>
-
     <view class="address">
         {{address}}
     </view>
@@ -34,7 +30,9 @@
   </view>
 
   <view class ="map">
+    <map>
 
+    </map>
   </view>
 
     <!-- <button  style="margin-top:55rpx; padding-bottom:1rpx; width:95%" type="warning" form-type="submit" loading="{{loading}}" bindtap="onSendInvite">

@@ -10,7 +10,7 @@
 <template name="form">
   <form bindsubmit="bindSubmit">
       <view class="section">
-      <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Description'/>
+      <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Title'/>
       </view>
       <view class="section">
       <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/>

@@ -79,3 +79,23 @@
 .start-end-type{
   border-top: 1px solid rgba(0,0,0,0.14);
 }
+
+.time{
+  position: relative;
+  left: 450rpx;
+  bottom: 52rpx;
+}
+
+.dumbstuff{
+  /* border: 1px solid grey; */
+  width: 35%;
+  font-size: 17px;
+  position: relative;
+  bottom: 778rpx;
+  left: 215rpx;
+}
+
+.picker2{
+  position:relative;
+  left: 60px;
+}

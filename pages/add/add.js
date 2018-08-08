@@ -6,12 +6,16 @@ Page({
    */
   data: {
     startDate: '',
-    endDate: ''
+    endDate: '',
+    startTime: '',
+    endTime: ''
   },
 
   saveTap: function() {
     let startDate = this.data.startDate
     let endDate = this.data.endDate
+    let startTime = this.data.startTime
+    let endTime = this.data.endTime
 
     wx.showModal({
       content: 'Confirm event?',
@@ -23,8 +27,8 @@ Page({
             url: 'Some-API',
             method: 'POST',
             data: {
-              start_date: startDate,
-              end_date: endDate
+              startDate: startDate,
+              endDate: endDate
             }
           });
           // wx.reLaunch({
@@ -51,6 +55,23 @@ Page({
     this.setData({
       endDate: event.detail.value
     })
+    console.log(this.data)
+  },
+
+  bindTimeChange1: function (event) {
+    console.log("bindTimeChange1: ", event.detail.value)
+    this.setData({
+      startTime: event.detail.value
+    })
+    console.log(this.data)
+  },
+
+  bindTimeChange2: function (event) {
+    console.log("bindTimeChange2: ", event.detail.value)
+    this.setData({
+      endTime: event.detail.value
+    })
+    console.log(this.data)
   },
 
   pickImage: function () {

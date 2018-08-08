@@ -1,60 +1,96 @@
 /* show.wxss */
 .card-title{
-  border-bottom: solid grey;
+  border-bottom: 1px solid lightgrey;
+  width: 100%;
+  height: 425rpx;
+  background: #FFFFFF;
 }
 
 .card-title .name{
-  font-size: 20px;
-  padding: 10px;
+  font-size: 32px;
+  font-weight: bolder;
+  /* border: 1px solid blue; */
+  width: 70%;
+  position: relative;
+  left: 60rpx;
+  top: 35rpx;
 }
 
-.card-title .time{
-  font-size: 20px;
-  padding: 10px;
+.backspace{
+  height: 40px;
+  width: 40px;
+}
+
+.card-title .date{
+  position: relative;
+  top: 42px;
+  width: 100%;
+  font-size: 17px;
+  border-bottom: 1px solid lightgrey;
+  padding-left: 110rpx;
+  padding-bottom: 10rpx;
 }
 
 .card-title .address{
-  font-size: 20px;
-  padding: 10px;
+  border-bottom: 1px solid lightgrey;
+  position: relative;
+  top: 106rpx;
+  font-size: 17px;
+  padding-left: 110rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
 }
 
 .card-mainInfo {
-  position: relative;
-  bottom: 10px;
-  right: 10px;
-  font-size: 10px;
-  text-align: right;
-  margin-top: 20rpx;
+ position: relative;
+  top: 106rpx;
+  font-size: 17px;
+  padding-left: 110rpx;
+  padding-top: 30rpx;
+  /* border: 1px solid black; */
 }
 
 .page-container{
-  border: solid grey;
-  height: 500px;
-  width: 95%;
-  top: 250rpx;
+  /* border: 1px solid red; */
+  height: 605px;
+  width: 100%;
+  top: 275rpx;
   position: absolute;
   margin-top: 20rpx;
   display: flex;
   flex-direction: column;
+  background-color:#F9F7F7;
 }
 
 .image-container{
-  width: 95%;
+  width: 100%;
   height: 20%;
   top: 0%;
   position: absolute;
-  border: solid grey;
+  /* border: solid grey; */
+  
+}
+
+.avatar-status{
+  font-size:13px;
+  color:white;
+  font-family:sans-serif;
+  position: absolute;
+  left: 186rpx;
+  top: 47%;
+  /* border: 1px red solid; */
 }
 
 .avatar{
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
-  border: solid grey;
-  bottom: 5%;
-  left: 2%;
+  height: 60px;
+  width: 60px;
+  border: 0.1px solid grey;
+  bottom: 15%;
+  left: 6%;
   position: absolute;
 }
+
 
 .avatar-mini{
   border-radius: 50%;
@@ -64,25 +100,28 @@
 }
 
 .avatar-name{
-  border: solid grey;
-  height: 40px;
-  width: 120px;
-  left: 120px;
-  bottom: 5%;
+  /* border: 1px solid grey; */
+  /* height: 40px; */
+  left: 183rpx;
+  top: 57%;
+  font-size: 19px;
+  color: white;
+  font-weight: 450;
   position: absolute;
 }
 
 .list{
   height: 80px;
   width: 100%;
-  position: solid red;
+  position: absolute;
+  top: 390px;
 }
 
 .map{
-  height: 300rpx;
+  height: 350rpx;
   width: 100%;
-  border: solid green;
-  top: 50%;
+  border: 1px solid green;
+  top: 64.5%;
   position: absolute;
 }
 
@@ -91,5 +130,12 @@
   width: 100%;
   bottom: 0%;
   position: absolute;
-  border: solid blue;
+  /* border: solid blue; */
+}
+
+.background{
+  height: 295rpx;
+  width: 100%;
+  display: flex; 
+  position: absolute;
 }

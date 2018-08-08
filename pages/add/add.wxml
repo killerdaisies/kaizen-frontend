@@ -8,7 +8,7 @@
 </view>
 
 <view class="form">
-<template name="form">
+<!-- <template name="form" data="{{data}}"> -->
   <form bindsubmit="bindSubmit">
   <view class="title-location">
       <view class="section">
@@ -20,29 +20,47 @@
   </view>
 
   <view class="start-end-type">
-    <view class="section">
-      <picker mode="date" value="{{start_time}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange1">
+  <view class="section">
+      <picker mode="date" value="{{startDate}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange1">
         <view class="picker">
-          Start   {{startDate}}
+          Start Date: {{startDate}}
         </view>
       </picker>
+      <view class="time">
+          <picker mode="time" value="{{startTime}}" start="09:01" end="23:59" bindchange="bindTimeChange1">
+          <view class="picker">
+            Time: {{startTime}}
+          </view>
+        </picker>
+      </view>
     </view>
 
     <view class="section">
-      <picker mode="date" value="{{end_time}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange2">
+      <picker mode="date" value="{{endDate}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange2">
         <view class="picker">
-          End   {{endDate}}
+          End Date: {{endDate}}
         </view>
       </picker>
+      <view class="time">
+          <picker mode="time" value="{{endTime}}" start="00:02" end="23:59" bindchange="bindTimeChange2">
+          <view class="picker">
+            Time: {{endTime}}
+          </view>
+        </picker>
+      </view>
     </view>
 
     <view class="section">
       <textarea value="{{capacity}}" style="input-size" class="input-height" name="capacity" maxlength="-1" auto-height placeholder="Capacity"/>
     </view>
   </view>
-    
+  
+
   </form>
+
+  
   <button  style="margin-top:300rpx; padding-bottom:1rpx; width:102%" type="warning" form-type="submit" loading="{{loading}}" bindtap="saveTap">Save</button>
-</template>
+<!-- </template> -->
 <template is="form"/>
 </view>
+

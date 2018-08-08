@@ -1,7 +1,7 @@
 /* pages/add/add.wxss */
 .input-height {
   height: 10em;
-  color: grey;
+  color: black;
   position: relative;
 }
 
@@ -9,17 +9,23 @@
   color: black;
 }
 
+.form{
+  background-color: #FCFCFC;
+  position: relative;
+
+}
+
 .textarea {
   padding: 10rpx 0;
-  font-size: 35rpx;
+  font-size: 50rpx;
   color: black;
   width: 100%;
 }
 
 .add-avatar {
-  background-color: lightgrey;
+  background-color: #308E8B;
   opacity: 0.8;
-  height: 300px;
+  height: 190px;
 }
 
 .add-button {
@@ -53,16 +59,23 @@
 }
 
 .section{
-  padding: 15rpx 15rpx;
+  padding: 20rpx 20rpx;
   background-color: #fff;
   color: grey;
-  border: 1px solid #E5E5E5;
-  width: 90% ;
-  left: 10px;
-  right: 10px;
+  right: 2px;
+  width: 100% ;
   position: relative;
   opacity: .7;
   height: 30px;
-  border-radius: 5px;
+  border-bottom: 1px solid rgba(0,0,0,0.16);
+}
 
+.title-location{
+  margin-bottom: 30rpx;
+  margin-top: 20rpx;
+  border-top: 1px solid rgba(0,0,0,0.14);
+}
+
+.start-end-type{
+  border-top: 1px solid rgba(0,0,0,0.14);
 }

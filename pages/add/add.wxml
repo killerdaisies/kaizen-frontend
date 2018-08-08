@@ -1,5 +1,5 @@
 <!--pages/add/add.wxml-->
-<view style="margin-bottom:50px"type="primary" loading="{{loading}}">
+<view style="margin-bottom:26rpx"type="primary" loading="{{loading}}">
   <view class="add-avatar">
     <button class= "add-button" bindtap="pickImage"> Add a photo
       <image class= "camera" src="../images/camera.png"></image>
@@ -7,19 +7,23 @@
   </view>
 </view>
 
+<view class="form">
 <template name="form">
   <form bindsubmit="bindSubmit">
+  <view class="title-location">
       <view class="section">
-      <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Description'/>
+      <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Title'/>
       </view>
       <view class="section">
       <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/>
       </view>
+  </view>
 
+  <view class="start-end-type">
     <view class="section">
       <picker mode="date" value="{{start_time}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange1">
         <view class="picker">
-          Start Time   {{startDate}}
+          Start   {{startDate}}
         </view>
       </picker>
     </view>
@@ -27,7 +31,7 @@
     <view class="section">
       <picker mode="date" value="{{end_time}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange2">
         <view class="picker">
-          End Time   {{endDate}}
+          End   {{endDate}}
         </view>
       </picker>
     </view>
@@ -35,8 +39,10 @@
     <view class="section">
       <textarea value="{{capacity}}" style="input-size" class="input-height" name="capacity" maxlength="-1" auto-height placeholder="Capacity"/>
     </view>
-
-    <button  style="margin-top:55rpx; padding-bottom:1rpx; width:95%" type="warning" form-type="submit" loading="{{loading}}" bindtap="saveTap">Save</button>
+  </view>
+    
   </form>
+  <button  style="margin-top:300rpx; padding-bottom:1rpx; width:102%" type="warning" form-type="submit" loading="{{loading}}" bindtap="saveTap">Save</button>
 </template>
 <template is="form"/>
+</view>

@@ -79,7 +79,7 @@
 }
 
 .map{
-  height: 300rpx;
+  height: 200rpx;
   width: 100%;
   border: solid green;
   top: 50%;
@@ -92,4 +92,10 @@
   bottom: 0%;
   position: absolute;
   border: solid blue;
+}
+
+.share-btn{
+  background-color: lightgrey;
+  color: white;
+  border-radius: 10px;
 }

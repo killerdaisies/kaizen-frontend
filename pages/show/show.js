@@ -12,16 +12,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options, 182774)
     let page = this;
+    console.log("KKK",options)
     wx.request({
-      // data: {
-      //   id: "",
-      //   address:"",
-      //   start_time:"",
-      //   end_time:"",
-      // }
-      url: "http://localhost:3000/api/v1/events",
+      url: `http://localhost:3000/api/v1/events/${options.id}`,
       method: 'GET',
       // success(res) {
       //   console.log(222, res.data.events[0]);
@@ -30,10 +24,10 @@ Page({
       //     events: events
       //   });
       success(res) {
-        const item = res.data;
+        const event = res.data;
         console.log(res.data)
         page.setData(
-          item
+          event
         );
         wx.hideToast();
       }

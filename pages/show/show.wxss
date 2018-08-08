@@ -93,3 +93,9 @@
   position: absolute;
   border: solid blue;
 }
+
+.share-btn{
+  background-color: lightgrey;
+  color: white;
+  border-radius: 10px;
+}

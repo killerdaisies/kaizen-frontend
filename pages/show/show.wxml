@@ -37,9 +37,15 @@
 
   </view>
 
-  <view class ="invite-button">
-    <button  style="margin-top:55rpx; padding-bottom:1rpx; width:95%" type="warning" form-type="submit" loading="{{loading}}">
+    <!-- <button  style="margin-top:55rpx; padding-bottom:1rpx; width:95%" type="warning" form-type="submit" loading="{{loading}}" bindtap="onSendInvite">
       Send Invite
-    </button>
+    </button> -->
+
+  <view class ="invite-button">
+    <view bindtap="onShareAppMessage">
+      <button class="share-btn" open-type="share" type="warning">
+        Send Invite
+      </button>
+    </view>
   </view>
 </view>

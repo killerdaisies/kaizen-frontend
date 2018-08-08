@@ -21,8 +21,7 @@ Page({
       //   start_time:"",
       //   end_time:"",
       // }
-      // url: "https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/kaizenevents/${options.id}",
-      url: "https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/events-id",
+      url: "http://localhost:3000/api/v1/events",
       method: 'GET',
       // success(res) {
       //   console.log(222, res.data.events[0]);

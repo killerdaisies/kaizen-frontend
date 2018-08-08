@@ -10,6 +10,7 @@ App({
     // 登录
     const host = 'http://localhost:3000/'
     console.log('processing to login')
+    let self = this;
     wx.login({
       success: res => {
         console.log(233, res)
@@ -21,8 +22,8 @@ App({
             // user: user
           },
           success: (res) => {
-            console.log(234,res)
-            this.globalData.userInfo.userId = res.data.userId
+            console.log(2333, self.globalData)
+            self.globalData.userId = res.data.userId 
           }
         })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId

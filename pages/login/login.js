@@ -11,19 +11,20 @@ Page({
   },
 
   getUserInfo: function (e) {
-    console.log(e)
+    console.log(22, app)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo
     });
 
-    var nickName = e.detail.userInfo.nickName;
-    var avatarUrl = e.detail.userInfo.avatarUrl;
+    var nickName = app.globalData.userInfo.nickName;
+    var avatarUrl = app.globalData.userInfo.avatarUrl;
     var city = e.detail.userInfo.province;
-
-    console.log(1,city)
+    var id = app.globalData.userId;
+    console.log(1,id)
 
     let user = {
+      "id": id,
       "wechat_name": nickName,
       "city": city,
       "avatar_url": avatarUrl
@@ -37,9 +38,9 @@ Page({
       data: user,
       success() {
         console.log("he");
-        // wx.reLaunch({
-        //   url: '/pages/landing/landing',
-        // });
+        wx.reLaunch({
+          url: '/pages/landing/landing',
+        });
       }
     });
   },

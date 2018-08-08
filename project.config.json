@@ -33,14 +33,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
-				{
-					"id": -1,
-					"name": "Index",
-					"pathName": "pages/index/index",
-					"query": ""
-				},
 				{
 					"id": -1,
 					"name": "Login",
@@ -50,7 +44,20 @@
 				{
 					"id": -1,
 					"name": "Add",
-					"pathName": "pages/add/add"
+					"pathName": "pages/add/add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "Landing",
+					"pathName": "pages/landing/landing",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "Show",
+					"pathName": "pages/show/show",
+					"query": ""
 				}
 			]
 		}

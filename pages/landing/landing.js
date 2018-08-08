@@ -1,4 +1,5 @@
 // pages/landing/landing.js
+const app = getApp()
 Page({
 
   /**
@@ -23,7 +24,6 @@ Page({
       url:  'http://localhost:3000/api/v1/events',
       method: 'GET',
       success(res) {
-        console.log(222, res.data.events[0]);
         const events = res.data.events;
         page.setData({
           events: events
@@ -38,8 +38,9 @@ Page({
   showItem(e) {
     const data = e.currentTarget.dataset;
     const event = data.event;
+    console.log(event)
     wx.navigateTo({
-      url: '../show/show?id=${event.id}'
+      url: `../show/show?id=${event.id}`
     });
   },
 

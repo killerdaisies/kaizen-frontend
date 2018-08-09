@@ -15,7 +15,16 @@
       <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Title'/>
       </view>
       <view class="section">
-      <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/>
+      <!-- <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/> -->
+      <view class ="invite-button">
+        <view bindtap="onShareAppMessage">
+          <button class="location-btn" open-type="share" type="warning">
+          <view class="location">
+            Location: <text class="location-info">{{Location}} </text> 
+          </view>
+          </button>
+        </view>
+      </view>
       </view>
   </view>
 

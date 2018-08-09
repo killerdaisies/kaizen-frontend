@@ -115,3 +115,23 @@ color: white;
 background-image: linear-gradient( 68.8deg,  rgba(119,202,189,1) 17.9%, rgba(91,178,218,1) 93.1% );
 }
 
+.location-btn{
+  background-color: white;
+  /* position: absolute; */
+  bottom: 32.8rpx;
+  padding: 5.5rpx 0rpx 44rpx 700rpx;
+  /* border: 1px solid transparent; */
+  right: 16px;
+  color: gray;
+  display: inline;
+}
+
+.location-info{
+  position: absolute；
+}
+
+.location{
+  position: absolute;
+  bottom: 3rpx;
+  left: 36rpx;
+}

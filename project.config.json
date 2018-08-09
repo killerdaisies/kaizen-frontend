@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -60,15 +60,22 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "map",
+					"id": 4,
+					"name": "Map",
 					"pathName": "pages/map/map",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "Invited",
-					"pathName": "pages/invited/invited"
+					"pathName": "pages/invited/invited",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "List",
+					"pathName": "pages/list/list",
+					"query": ""
 				}
 			]
 		}

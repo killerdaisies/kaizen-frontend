@@ -54,12 +54,12 @@
       <textarea value="{{capacity}}" style="input-size" class="input-height" name="capacity" maxlength="-1" auto-height placeholder="Capacity"/>
     </view>
   </view>
-  
+
 
   </form>
 
-  
   <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}" bindtap="saveTap">Save</button>
+
 <!-- </template> -->
 <template is="form"/>
 </view>

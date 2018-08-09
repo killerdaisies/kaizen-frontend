@@ -6,7 +6,7 @@
     <view class="card-title">
 
       <view class="name">
-        <image class="avatar" src="{{user.avatar_url}}"></image>
+        <image class="avatar-mini" src="{{user.avatar_url}}"></image>
           {{user.wechat_name}}
       </view>
 

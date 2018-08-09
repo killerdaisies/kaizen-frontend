@@ -1,14 +1,15 @@
 /* pages/list/list.wxss */
 .page-container{
   border: solid grey;
-  height: 800px;
-  width: 95%;
+  height: 500px;
+  width: 100%;
   top: 250rpx;
   position: absolute;
   margin-top: 20rpx;
   display: flex;
   flex-direction: column;
 }
+
 
 .card-title{
   border-bottom: solid grey;
@@ -17,14 +18,14 @@
 .card-title .name{
   font-size: 20px;
   padding: 10px;
-  /*padding-top: 20px;*/
 }
 
-.card-mainInfo {
+.avatar-mini{
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  border: solid grey;
+  top: 15rpx;
   position: relative;
-  bottom: 10px;
-  right: 10px;
-  font-size: 10px;
-  text-align: right;
-  margin-top: 20rpx;
+  margin-right: 10rpx
 }

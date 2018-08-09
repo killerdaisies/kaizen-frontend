@@ -1,0 +1,7 @@
+<!--pages/map/map.wxml-->
+<view>Get current location</view>
+<view>--------------------</view>
+<view>Latitude : {{latitude}}</view>
+<view>Longitude : {{longitude}}</view>
+<view>Speed : {{speed}}</view>
+<view>Accuracy : {{Accuracy}}</view>

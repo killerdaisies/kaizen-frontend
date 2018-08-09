@@ -95,23 +95,23 @@ Page({
     console.log("id",id)
     let self = this;
     wx.request({
-      url: `http://localhost:3000/api/v1/events`,
+      url: `https://kaizen-frontend.herokuapp.com/api/v1/events`,
       method: 'POST',
       data: event,
       success: function(res) {
         // set data on index page and show
         console.log("he", res);
-        app.globalData.eventId = res.data.id 
-        self.joinEventUponCreation()
-        // wx.navigateTo({
-        //   url: '/pages/editshow/editshow?id=' + res.data.id
-        // });
+        self.joinEventUponCreation(res.data.id)
+        wx.navigateTo({
+          // url: '/pages/editshow/editshow?id=' + res.data.id
+          url: '/pages/landing/landing'
+        });
       }
     });
   },
 
-  joinEventUponCreation: function () {
-    let eventId = app.globalData.eventId;
+  joinEventUponCreation: function (eventId) {
+    debugger
     let id = app.globalData.userId;
 
     wx.request({

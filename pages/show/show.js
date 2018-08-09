@@ -15,7 +15,7 @@ Page({
     let page = this;
     console.log("KKK",options)
     wx.request({
-      url: `http://localhost:3000/api/v1/events/${options.id}`,
+      url: `https://kaizen-frontend.herokuapp.com/api/v1/events/${options.id}`,
       method: 'GET',
       // success(res) {
       //   console.log(222, res.data.events[0]);

@@ -8,7 +8,7 @@ App({
 
 
     // 登录
-    const host = 'http://localhost:3000/'
+    const host = 'https://kaizen-frontend.herokuapp.com/'
     console.log('processing to login')
     let self = this;
     wx.login({

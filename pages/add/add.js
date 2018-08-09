@@ -1,5 +1,5 @@
 // pages/add/add.js
-var app = getApp()
+const app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -8,7 +8,20 @@ Page({
     startDate: '',
     endDate: '',
     startTime: '',
-    endTime: ''
+    endTime: '',
+    latitude: '',
+    longitude: '',
+  },
+
+  chooseLocation: function () {
+    wx.chooseLocation({
+      success: function (res) {
+        console.log();
+        const latitude = res.latitude
+        const longitude = res.longitude
+        this.setData({latitude, longitude})
+      }
+    })
   },
   // saveTap: function() {
   //   let startDate = this.data.startDate;
@@ -35,6 +48,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+
   bindDateChange1: function(event) {
     console.log("bindDateChange1: ", event.detail.value)
     this.setData({
@@ -94,12 +108,14 @@ Page({
       loading: !this.data.loading
     });
 
-    var description = e.detail.value.description
-    var address = e.detail.value.address;
-    var capacity = e.detail.value.capacity;
+    let description = e.detail.value.description
+    let address = e.detail.value.address;
+    let capacity = e.detail.value.capacity;
     let startDate = this.data.startDate;
     let endDate = this.data.endDate;
     let id = app.globalData.userId;
+    let latitude = this.data.latitude;
+    let longitude = this.data.longitude;
 
     let event = {
       "description": description,
@@ -107,13 +123,16 @@ Page({
       "capacity": capacity,
       "start_time": startDate,
       "end_time": endDate,
-      "user_id": id
+      "user_id": id,
+      "latitude": latitude,
+      "longitude": longitude
+
     };
 
     console.log("id",id)
     let self = this;
     wx.request({
-      url: `https://kaizen-frontend.herokuapp.com/api/v1/events`,
+      url: 'https://kaizen-frontend.herokuapp.com/api/v1/events',
       method: 'POST',
       data: event,
       success: function(res) {
@@ -146,7 +165,7 @@ Page({
         //   url: '/pages/editshow/editshow?id=' + res.data.id
         // });
       }
-    });    
+    });
   },
   onLoad: function (options) {
 

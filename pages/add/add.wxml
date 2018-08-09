@@ -1,5 +1,5 @@
 <!--pages/add/add.wxml-->
-<view style="margin-bottom:50px"type="primary" loading="{{loading}}">
+<view style="margin-bottom:26rpx"type="primary" loading="{{loading}}">
   <view class="add-avatar">
     <button class= "add-button" bindtap="pickImage"> Add a photo
       <image class= "camera" src="../images/camera.png"></image>
@@ -7,36 +7,60 @@
   </view>
 </view>
 
-<template name="form">
+<view class="form">
+<!-- <template name="form" data="{{data}}"> -->
   <form bindsubmit="bindSubmit">
+  <view class="title-location">
       <view class="section">
       <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Title'/>
       </view>
       <view class="section">
       <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/>
       </view>
+  </view>
 
-    <view class="section">
-      <picker mode="date" value="{{start_time}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange1">
+  <view class="start-end-type">
+  <view class="section">
+      <picker mode="date" value="{{startDate}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange1">
         <view class="picker">
-          Start Time   {{startDate}}
+          <text class="bold">Start Date:</text> {{startDate}}
         </view>
       </picker>
+      <view class="time">
+          <picker mode="time" value="{{startTime}}" start="09:01" end="23:59" bindchange="bindTimeChange1">
+          <view class="picker">
+           <text class="bold">Time:</text> {{startTime}}
+          </view>
+        </picker>
+      </view>
     </view>
 
     <view class="section">
-      <picker mode="date" value="{{end_time}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange2">
+      <picker mode="date" value="{{endDate}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange2">
         <view class="picker">
-          End Time   {{endDate}}
+          <text class="bold">End Date:</text> {{endDate}}
         </view>
       </picker>
+      <view class="time">
+          <picker mode="time" value="{{endTime}}" start="00:02" end="23:59" bindchange="bindTimeChange2">
+          <view class="picker">
+            <text class="bold">Time:</text> {{endTime}}
+          </view>
+        </picker>
+      </view>
     </view>
 
     <view class="section">
       <textarea value="{{capacity}}" style="input-size" class="input-height" name="capacity" maxlength="-1" auto-height placeholder="Capacity"/>
     </view>
+  </view>
+  
 
-    <button  style="margin-top:55rpx; padding-bottom:1rpx; width:95%" type="warning" form-type="submit" loading="{{loading}}" bindtap="saveTap">Save</button>
   </form>
-</template>
+
+  
+  <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}" bindtap="saveTap">Save</button>
+<!-- </template> -->
 <template is="form"/>
+</view>
+

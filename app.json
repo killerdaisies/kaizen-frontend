@@ -5,7 +5,9 @@
     "pages/add/add",
     "pages/landing/landing",
     "pages/show/show",
-    "pages/list/list"
+    "pages/list/list",
+    "pages/map/map",
+    "pages/invited/invited"
   ],
   "window": {
     "backgroundTextStyle": "light",

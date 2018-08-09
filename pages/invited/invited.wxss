@@ -1,4 +1,4 @@
-/* show.wxss */
+/* pages/invited/invited.wxss */
 .card-title{
   border-bottom: 1px solid lightgrey;
   width: 100%;
@@ -125,10 +125,11 @@
   position: absolute;
 }
 
-.invite-button{
+.decision-button{
   height: 150rpx;
   width: 100%;
   bottom: 0%;
+  display: inline-flex;
   position: absolute;
   /* border: solid blue; */
 }
@@ -140,9 +141,8 @@
   position: absolute;
 }
 
-.share-btn{
-  background-color: lightgrey;
-  color: white;
-  border-radius: 10px;
+.accept-btn{
+  margin-top:55rpx;
+  padding-bottom:1rpx;
+  width:49.5%;
 }
-

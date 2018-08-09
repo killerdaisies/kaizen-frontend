@@ -1,10 +1,10 @@
 /* show.wxss */
-.card-title{
+/* .card-title{
   border-bottom: 1px solid lightgrey;
   width: 100%;
-  height: 425rpx;
+  height: 36%;
   background: #FFFFFF;
-}
+} */
 
 .card-title .name{
   font-size: 32px;
@@ -38,29 +38,37 @@
   font-size: 17px;
   padding-left: 110rpx;
   padding-top: 15rpx;
-  padding-bottom: 15rpx;
+  padding-bottom: 30rpx;
 }
 
-.card-mainInfo {
+.card-title .time{
+  position: relative;
+  top: 107rpx;
+  font-size: 17px;
+  padding-left: 110rpx;
+  padding-top: 20rpx;
+  padding-bottom: 15rpx;
+  border-bottom: 1px solid lightgrey;
+
+}
+
+/* .card-mainInfo {
  position: relative;
   top: 106rpx;
   font-size: 17px;
   padding-left: 110rpx;
   padding-top: 30rpx;
-  /* border: 1px solid black; */
-}
+  border: 1px solid black;
+} */
 
-.page-container{
-  /* border: 1px solid red; */
-  height: 605px;
+/* .page-container{
+  border: 1px solid red;
   width: 100%;
-  top: 275rpx;
-  position: absolute;
   margin-top: 20rpx;
   display: flex;
   flex-direction: column;
   background-color:#F9F7F7;
-}
+} */
 
 .image-container{
   width: 100%;
@@ -77,7 +85,7 @@
   font-family:sans-serif;
   position: absolute;
   left: 186rpx;
-  top: 47%;
+  top: 51%;
   /* border: 1px red solid; */
 }
 
@@ -103,7 +111,7 @@
   /* border: 1px solid grey; */
   /* height: 40px; */
   left: 183rpx;
-  top: 57%;
+  top: 61%;
   font-size: 19px;
   color: white;
   font-weight: 450;
@@ -111,38 +119,44 @@
 }
 
 .list{
-  height: 80px;
   width: 100%;
-  position: absolute;
-  top: 390px;
+  margin: 168rpx 0rpx 68rpx 0rpx;
 }
 
 .map{
-  height: 350rpx;
   width: 100%;
-  border: 1px solid green;
-  top: 64.5%;
-  position: absolute;
+  margin-bottom: 68rpx;
 }
 
 .invite-button{
-  height: 150rpx;
+  /* height: 150rpx; */
   width: 100%;
-  bottom: 0%;
-  position: absolute;
+  /* bottom: 0%;
+  position: absolute; */
   /* border: solid blue; */
 }
 
 .background{
   height: 295rpx;
   width: 100%;
-  display: flex; 
-  position: absolute;
+  display: flex;
 }
 
 .share-btn{
-  background-color: lightgrey;
+  background-image: linear-gradient( 68.8deg,  rgba(119,202,189,1) 17.9%, rgba(91,178,218,1) 93.1% );
   color: white;
-  border-radius: 10px;
+  /* margin-top: 52rpx;
+  position: relative; */
+}
+
+.list-button{
+  background-color: white;
+  width: 100%;
+  padding: 18rpx;
+}
+
+.list-button :hover{
+  opacity: 0.8;
+  background-color: red;
 }
 

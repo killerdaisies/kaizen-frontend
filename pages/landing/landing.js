@@ -21,7 +21,7 @@ Page({
     console.log(options, 182774)
     let page = this;
     wx.request({
-      url:  'http://localhost:3000/api/v1/events',
+      url:  'https://kaizen-frontend.herokuapp.com/api/v1/events',
       method: 'GET',
       success(res) {
         const events = res.data.events;

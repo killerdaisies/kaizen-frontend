@@ -59,7 +59,7 @@
   </form>
 
   
-  <button  style="margin-top:300rpx; padding-bottom:1rpx; width:102%" type="warning" form-type="submit" loading="{{loading}}" bindtap="saveTap">Save</button>
+  <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}" bindtap="saveTap">Save</button>
 <!-- </template> -->
 <template is="form"/>
 </view>

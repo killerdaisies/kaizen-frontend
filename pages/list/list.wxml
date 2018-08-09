@@ -1,2 +1,18 @@
 <!--pages/list/list.wxml-->
-<text>pages/list/list.wxml</text>
+<text>Guest List</text>
+
+<view class="page-container">
+  <view wx:for="{{users}}" wx:for-item="user" wx:key="user.id" data-event= "{{user}}" >
+    <view class="card-title">
+
+      <view class="name">
+        <image class="avatar" src="{{user.avatar_url}}"></image>
+          {{user.wechat_name}}
+      </view>
+
+      <view class="card-mainInfo">
+
+      </view>
+    </view>
+  </view>
+</view>

@@ -41,6 +41,8 @@ Page({
     });
     // console.log(12, options.query)
     // this.setData(app.globalData)
+    this.mapCtx.moveToLocation()
+
   },
 
   onShareAppMessage: function () {

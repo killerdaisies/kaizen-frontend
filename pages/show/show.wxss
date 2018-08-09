@@ -79,7 +79,7 @@
 }
 
 .map{
-  height: 200rpx;
+  height: 300rpx;
   width: 100%;
   border: solid green;
   top: 50%;

@@ -29,17 +29,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options, 182774)
     let page = this;
+    console.log("KKK",options)
     wx.request({
-      // data: {
-      //   id: "",
-      //   address:"",
-      //   start_time:"",
-      //   end_time:"",
-      // }
-      // url: "https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/kaizenevents/${options.id}",
-      url: "https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/events-id",
+      url: `http://localhost:3000/api/v1/events/${options.id}`,
       method: 'GET',
       // success(res) {
       //   console.log(222, res.data.events[0]);
@@ -48,10 +41,10 @@ Page({
       //     events: events
       //   });
       success(res) {
-        const item = res.data;
+        const event = res.data;
         console.log(res.data)
         page.setData(
-          item
+          event
         );
         wx.hideToast();
       }
@@ -59,6 +52,28 @@ Page({
     // console.log(12, options.query)
     // this.setData(app.globalData)
   },
+
+  onShareAppMessage: function () {
+    console.log('share')
+    wx.showShareMenu({
+     withShareTicket: true
+    })
+  },
+
+  listenerBtnGetLocation: function () {
+    wx.getLocation({
+      type: 'wgs84',
+        success: function(res) {
+          var latitude = res.latitude
+          var longitude = res.longitude
+          wx.openLocation({
+           latitude: latitude,
+           longitude: longitude,
+           scale: 28
+          })
+        }
+      })
+    },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

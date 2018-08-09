@@ -10,36 +10,28 @@ Page({
     startTime: '',
     endTime: ''
   },
+  // saveTap: function() {
+  //   let startDate = this.data.startDate;
+  //   let endDate = this.data.endDate;
 
-  saveTap: function() {
-    let startDate = this.data.startDate
-    let endDate = this.data.endDate
-    let startTime = this.data.startTime
-    let endTime = this.data.endTime
+  //   console.log(23,this)
 
-    wx.showModal({
-      content: 'Confirm event?',
-      confirmText: "Confirm",
-      cancelText: "No",
-      success: function (res) {
-        if (res.confirm) {
-          wx.request({
-            url: 'Some-API',
-            method: 'POST',
-            data: {
-              startDate: startDate,
-              endDate: endDate
-            }
-          });
-          // wx.reLaunch({
-          //   url: '/pages/profile/profile'
-          // });
-        } else {
-          console.log("Staying on page")
-        }
-      }
-    })
-  },
+  //   wx.showModal({
+  //     content: 'Confirm event?',
+  //     confirmText: "Confirm",
+  //     cancelText: "No",
+  //     success: function (res) {
+  //       console.log(0,res)
+  //       if (res.confirm) {
+  //         wx.reLaunch({
+  //           url: '/pages/show/show'
+  //         });
+  //       } else {
+  //         console.log("Staying on page")
+  //       }
+  //     }
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -95,7 +87,9 @@ Page({
   },
 
   bindSubmit: function (e) {
-    console.log(23, e)
+    console.log(23, this)
+    console.log("e", e)
+    console.log("app",app)
     this.setData({
       loading: !this.data.loading
     });
@@ -103,24 +97,30 @@ Page({
     var description = e.detail.value.description
     var address = e.detail.value.address;
     var capacity = e.detail.value.capacity;
+    let startDate = this.data.startDate;
+    let endDate = this.data.endDate;
+    let id = app.globalData.userId;
 
-    var items = app.globalData.items
-
-    let item = {
+    let event = {
       "description": description,
       "address": address,
       "capacity": capacity,
-      "user_id": 37
-    }
+      "start_time": startDate,
+      "end_time": endDate,
+      "user_id": id
+    };
 
+    console.log("id",id)
+    let self = this;
     wx.request({
-      url: `Some-API`,
+      url: `http://localhost:3000/api/v1/events`,
       method: 'POST',
-      data: item,
-
+      data: event,
       success: function(res) {
         // set data on index page and show
-        console.log("he");
+        console.log("he", res);
+        app.globalData.eventId = res.data.id 
+        self.joinEventUponCreation()
         // wx.navigateTo({
         //   url: '/pages/editshow/editshow?id=' + res.data.id
         // });
@@ -128,6 +128,26 @@ Page({
     });
   },
 
+  joinEventUponCreation: function () {
+    let eventId = app.globalData.eventId;
+    let id = app.globalData.userId;
+
+    wx.request({
+      url: 'http://localhost:3000/api/v1/bookings',
+      method: 'POST',
+      data: {
+        "user_id": id,
+        "event_id": eventId
+      },
+      success: function (res) {
+        // set data on index page and show
+        console.log("hee");
+        // wx.navigateTo({
+        //   url: '/pages/editshow/editshow?id=' + res.data.id
+        // });
+      }
+    });    
+  },
   onLoad: function (options) {
 
   },

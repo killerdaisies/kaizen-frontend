@@ -1,4 +1,5 @@
 // pages/landing/landing.js
+const app = getApp()
 Page({
 
   /**
@@ -8,6 +9,11 @@ Page({
 
   },
 
+  addTap: function (e) {
+    wx.navigateTo({
+      url: '/pages/add/add',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -15,11 +21,9 @@ Page({
     console.log(options, 182774)
     let page = this;
     wx.request({
-      // url: 'https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/kaizenevents = ${events}',
-      url: "https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/kaizenevents",
+      url:  'http://localhost:3000/api/v1/events',
       method: 'GET',
       success(res) {
-        console.log(222, res.data.events[0]);
         const events = res.data.events;
         page.setData({
           events: events
@@ -34,8 +38,9 @@ Page({
   showItem(e) {
     const data = e.currentTarget.dataset;
     const event = data.event;
+    console.log(event)
     wx.navigateTo({
-      url: '../show/show?id=${event.id}'
+      url: `../show/show?id=${event.id}`
     });
   },
 

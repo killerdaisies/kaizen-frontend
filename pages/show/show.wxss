@@ -139,3 +139,10 @@
   display: flex; 
   position: absolute;
 }
+
+.share-btn{
+  background-color: lightgrey;
+  color: white;
+  border-radius: 10px;
+}
+

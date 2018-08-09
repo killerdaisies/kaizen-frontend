@@ -49,16 +49,18 @@
 }
 
 .button-container {
-  right: 0%;
-  position: absolute;
-  height: 200rpx;
+  left: 0%;
+  bottom: 10%;
+  position: fixed;
+  height: 150rpx;
+  width: 150rpx;
 }
 
 .page-container{
   border: solid grey;
   height: 800px;
   width: 95%;
-  top: 250rpx;
+  /*top: 250rpx;*/
   position: absolute;
   margin-top: 20rpx;
   display: flex;

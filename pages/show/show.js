@@ -16,11 +16,11 @@ Page({
     covers: [{
       latitude: 23.099994,
       longitude: 113.344520,
-      iconPath: '/image/location.png'
+      // iconPath: '/image/location.png'
     }, {
       latitude: 23.099994,
       longitude: 113.304520,
-      iconPath: '/image/location.png'
+      // iconPath: '/image/location.png'
     }]
 
   },
@@ -36,7 +36,7 @@ Page({
    */
   onLoad: function (options) {
     let page = this;
-    console.log("KKK",options)
+    console.log("hello",options)
     wx.request({
       url: `https://kaizen-frontend.herokuapp.com/api/v1/events/${options.id}`,
       method: 'GET',
@@ -61,8 +61,15 @@ Page({
 
   onShareAppMessage: function () {
     console.log('share')
-    wx.showShareMenu({
-     withShareTicket: true
+    return {
+      title: 'Event Invite',
+      path: `/pages/invited/invited?id=${event.id}`,
+    }
+  },
+
+  viewList: function () {
+    wx.navigateTo({
+      url: '/pages/list/list',
     })
   },
 
@@ -120,13 +127,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

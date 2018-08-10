@@ -22,7 +22,7 @@
       <view class="card-mainInfo">
 
         <view class="time">
-          {{event.start_time}} - {{event.end_time}}
+          {{event.start}} - {{event.end}}
         </view>
       </view>
     </view>

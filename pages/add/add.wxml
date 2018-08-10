@@ -61,9 +61,6 @@
 
     <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}">Save</button>
   </view>
-
-
-    <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}">Save</button>
   </form>
 
 <!-- <template is="form"/> -->

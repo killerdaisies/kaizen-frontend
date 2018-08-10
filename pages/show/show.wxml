@@ -23,7 +23,7 @@
     </view>
 
     <view class="date">
-        {{start_time}}
+        {{start}}
         <text>07/08/2018 Tuesday 2:30-5:30pm</text>
     </view>
 
@@ -34,7 +34,7 @@
     </view>
     <view class="time">
       <text>3:30 - 4:30</text>
-        {{start_time}} {{end_time}}
+        {{start}} {{end}}
     </view>
   </view>
 </view>

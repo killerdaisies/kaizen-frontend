@@ -19,8 +19,12 @@ Page({
     wx.chooseLocation({
       success: function (res) {
         self.setData(
-          {latitude: res.latitude}, 
+          {latitude: res.latitude}
+        )
+        self.setData (
           {longitude: res.longitude}, 
+        )
+        self.setData(
           {address: res.address}
         )
         console.log(11, self.data)

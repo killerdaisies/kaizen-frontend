@@ -25,19 +25,18 @@
     <view class="date">
 
     <image class="icon" src="../images/time.png"></image>
-        {{event.start}}
-        <text>07/08/2018 Tuesday 2:30-5:30pm</text>
+        {{start}}
+        <!-- <text>07/08/2018 Tuesday 2:30-5:30pm</text> -->
     </view>
 
     <view class="address">
     <image class="icon" src="../images/location.png"></image>
         {{event.address}}
-        <text>WeWork Nanjing West Road 3F
-        </text>
+        <!-- <text>WeWork Nanjing West Road 3F </text> -->
     </view>
     <view class="time">
     <image class="reminder" src="../images/reminder.png"></image>
-      <text>3:30 - 4:30</text>
+      <!-- <text>3:30 - 4:30</text> -->
         {{event.start}} {{event.end}}
     </view>
   </view>

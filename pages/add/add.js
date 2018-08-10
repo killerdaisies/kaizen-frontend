@@ -1,5 +1,5 @@
 // pages/add/add.js
-var app = getApp()
+const app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -8,7 +8,20 @@ Page({
     startDate: '',
     endDate: '',
     startTime: '',
-    endTime: ''
+    endTime: '',
+    latitude: '',
+    longitude: '',
+  },
+
+  chooseLocation: function () {
+    wx.chooseLocation({
+      success: function (res) {
+        console.log();
+        const latitude = res.latitude
+        const longitude = res.longitude
+        this.setData({latitude, longitude})
+      }
+    })
   },
   // saveTap: function() {
   //   let startDate = this.data.startDate;
@@ -35,6 +48,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+
   bindDateChange1: function(event) {
     console.log("bindDateChange1: ", event.detail.value)
     this.setData({
@@ -94,15 +108,17 @@ Page({
       loading: !this.data.loading
     });
 
-    var description = e.detail.value.description
-    var address = e.detail.value.address;
-    var capacity = e.detail.value.capacity;
+    let description = e.detail.value.description
+    let address = e.detail.value.address;
+    let capacity = e.detail.value.capacity;
     let startDate = this.data.startDate;
     let endDate = this.data.endDate;
     let startTime = this.data.startTime;
     let endTime = this.data.endTime;
     let id = app.globalData.userId;
-    
+
+//     let latitude = this.data.latitude;
+//     let longitude = this.data.longitude;
     let event = {
       "description": description,
       "address": address,
@@ -112,6 +128,8 @@ Page({
       "start_date": startDate,
       "end_date": endDate, 
       "user_id": id
+//       "latitude": latitude,
+//       "longitude": longitude
     };
 
     console.log("id",id)
@@ -150,7 +168,7 @@ Page({
         //   url: '/pages/editshow/editshow?id=' + res.data.id
         // });
       }
-    });    
+    });
   },
   onLoad: function (options) {
 

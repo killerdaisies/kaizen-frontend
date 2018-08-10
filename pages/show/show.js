@@ -16,20 +16,27 @@ Page({
     covers: [{
       latitude: 23.099994,
       longitude: 113.344520,
-      iconPath: '/image/location.png'
+      // iconPath: '/image/location.png'
     }, {
       latitude: 23.099994,
       longitude: 113.304520,
-      iconPath: '/image/location.png'
+      // iconPath: '/image/location.png'
     }]
 
   },
 
+  viewParticipants: function (e) {
+    let participants = e.target.dataset.participants
+    wx.navigateTo({
+      url: `../index/index?query=${category}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let page = this;
+    console.log("hello",options)
     wx.request({
       url: app.globalData.apiHost + `/events/${options.id}`,
       method: 'GET',
@@ -54,8 +61,15 @@ Page({
 
   onShareAppMessage: function () {
     console.log('share')
-    wx.showShareMenu({
-     withShareTicket: true
+    return {
+      title: 'Event Invite',
+      path: `/pages/invited/invited?id=${event.id}`,
+    }
+  },
+
+  viewList: function () {
+    wx.navigateTo({
+      url: '/pages/list/list',
     })
   },
 
@@ -113,13 +127,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

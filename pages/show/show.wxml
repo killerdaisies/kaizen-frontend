@@ -12,13 +12,13 @@
       <text>Host</text>
     </view>
   </view>
-  <image class="avatar" src="{{event.user.avatar_url}}"></image>
+  <image class="avatar" src="{{user.avatar_url}}"></image>
 </view>
 </view>
 <view class="page-container">
   <view class="card-title">
     <view class="name">
-        {{event.description}}
+        {{description}}
         <text>Demo-Day</text>
     </view>
 
@@ -31,13 +31,13 @@
 
     <view class="address">
     <image class="icon" src="../images/location.png"></image>
-        {{event.address}}
+        {{address}}
         <!-- <text>WeWork Nanjing West Road 3F </text> -->
     </view>
     <view class="time">
     <image class="reminder" src="../images/reminder.png"></image>
       <!-- <text>3:30 - 4:30</text> -->
-        {{event.start}} {{event.end}}
+        {{start}} {{end}}
     </view>
   </view>
 </view>

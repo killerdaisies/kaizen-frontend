@@ -16,15 +16,11 @@
       </view>
       <view class="section">
       <!-- <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/> -->
-      <view class ="invite-button">
-        <view bindtap="onShareAppMessage">
-          <button class="location-btn" open-type="share" type="warning">
-          <view class="location">
-            Location: <text class="location-info">{{Location}} </text> 
-          </view>
+        <view class ="location-btn">
+          <button bindtap="chooseLocation">
+          Location
           </button>
         </view>
-      </view>
       </view>
   </view>
 
@@ -62,14 +58,11 @@
     <view class="section">
       <textarea value="{{capacity}}" style="input-size" class="input-height" name="capacity" maxlength="-1" auto-height placeholder="Capacity"/>
     </view>
+
+    <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}">Save</button>
   </view>
-
-
   </form>
 
-  <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}" bindtap="saveTap">Save</button>
-
-<!-- </template> -->
-<template is="form"/>
+<!-- <template is="form"/> -->
 </view>
 

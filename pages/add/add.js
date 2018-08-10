@@ -11,7 +11,7 @@ Page({
     endTime: '',
     latitude: '',
     longitude: '',
-    address: ''
+    address:''
   },
 
   chooseLocation: function () {
@@ -130,7 +130,7 @@ Page({
       "start_time": startTime ,
       "end_time": endTime,
       "start_date": startDate,
-      "end_date": endDate,
+      "end_date": endDate, 
       "user_id": id,
       "latitude": latitude,
       "longitude": longitude

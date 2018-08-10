@@ -4,7 +4,7 @@
   width: 100%;
   height: 36%; */
   background: #FFFFFF;
-} */
+} 
 
 .top-section {
     background: linear-gradient(68deg, rgba(45,157,121,0.9654236694677871) 0%, rgba(36,139,158,0.9458158263305322) 76%, rgba(34,134,179,0.9542191876750701) 100%);

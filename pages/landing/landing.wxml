@@ -12,14 +12,12 @@
 </view> -->
 
 <view class="page-container">
-  <view class="top-section" style=" background-image: url(../images/avatarmountain.jpg), linear-gradient( 68.8deg,  rgba(119,202,189,0.5) 17.9%, rgba(0,0,0,1) 93.1% );">
-  <view class="title">
-  Your Events
-  </view>
-  
+  <!-- <view class="top-section" style=" background-image: url(../images/avatarmountain.jpg), linear-gradient( 68.8deg,  rgba(119,202,189,0.5) 17.9%, rgba(0,0,0,1) 93.1% );">
+   <view class="title">
+   Your Events
+   </view>
+  </view> -->
 
-
-  </view>
   <view wx:for="{{events}}" wx:for-item="event" wx:key="event.id" bindtap="showItem" data-event= "{{event}}" class="inner-card">
 
     <view class="card-title">

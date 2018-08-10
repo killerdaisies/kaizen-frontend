@@ -14,14 +14,11 @@
       <view class="section">
       <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Title'/>
       </view>
-      <view class="section">
+      
       <!-- <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/> -->
-        <view class ="location-btn">
-          <button bindtap="chooseLocation">
-          Location
-          </button>
-        </view>
-      </view>
+      <button class="btn-location" bindtap="chooseLocation">
+        Location
+      </button>
   </view>
 
   <view class="start-end-type">

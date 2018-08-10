@@ -23,7 +23,7 @@
 }
 
 .add-avatar {
-  background-image: linear-gradient( 68.8deg,  rgba(119,202,189,1) 17.9%, rgba(91,178,218,1) 93.1% );
+    background: linear-gradient(68deg, rgba(45,157,121,0.9654236694677871) 0%, rgba(36,139,158,0.9458158263305322) 76%, rgba(34,134,179,0.9542191876750701) 100%);
   opacity: 0.8;
   height: 190px;
 }
@@ -54,8 +54,10 @@
 }
 
 .button{
-  margin-top: 100px;
+  margin-top: 150px;
   margin-bottom:50px;
+  postion: absolute;
+  right: 20px;
 }
 
 .section{
@@ -74,6 +76,7 @@
   margin-bottom: 30rpx;
   margin-top: 20rpx;
   border-top: 1px solid rgba(0,0,0,0.14);
+  position: relative;
 }
 
 .start-end-type{
@@ -112,7 +115,7 @@ margin-top:300rpx;
 padding-bottom:1rpx;
 width:102%;
 color: white;
-background-image: linear-gradient( 68.8deg,  rgba(119,202,189,1) 17.9%, rgba(91,178,218,1) 93.1% );
+background: linear-gradient(68deg, rgba(45,157,121,0.9654236694677871) 0%, rgba(36,139,158,0.9458158263305322) 76%, rgba(34,134,179,0.9542191876750701) 100%);
 }
 
 .location-btn{

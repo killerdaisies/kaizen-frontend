@@ -1,4 +1,5 @@
 // show.js
+const app = getApp()
 Page({
 
   /**
@@ -48,7 +49,7 @@ Page({
       //   });
       success(res) {
         const event = res.data;
-        console.log(res.data)
+        console.log(22, res.data)
         page.setData(
           event
         );

@@ -20,7 +20,7 @@
 
 .card-title .name{
   font-size: 18px;
-  font-weight: 100;
+  font-weight: 350;
   color: white;
   padding: 10px;
   margin-bottom:8rpx;

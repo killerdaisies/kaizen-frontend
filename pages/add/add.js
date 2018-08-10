@@ -117,7 +117,7 @@ Page({
     });
 
     let description = e.detail.value.description
-    let address = e.detail.value.address;
+    let address = this.data.address;
     let capacity = e.detail.value.capacity;
     let startDate = this.data.startDate;
     let endDate = this.data.endDate;

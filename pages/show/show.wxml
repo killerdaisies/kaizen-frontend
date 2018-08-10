@@ -6,38 +6,39 @@
 <view class="image-container">
   <view class="avatar-details">
     <view class="avatar-name">
-      {{wechat_name}} <text>Jackson Cheung</text>
+      {{event.user.wechat_name}} <text>Jackson Cheung</text>
     </view>
     <view class="avatar-status">
       <text>Host</text>
     </view>
   </view>
-  <image class="avatar" src="{{avatar_url}}"></image>
+  <image class="avatar" src="{{event.user.avatar_url}}"></image>
 </view>
 </view>
 <view class="page-container">
   <view class="card-title">
     <view class="name">
-        {{description}} 
+        {{event.description}}
         <text>Demo-Day</text>
     </view>
 
     <view class="date">
+
     <image class="icon" src="../images/time.png"></image>
-        {{start}}
+        {{event.start}}
         <text>07/08/2018 Tuesday 2:30-5:30pm</text>
     </view>
 
     <view class="address">
     <image class="icon" src="../images/location.png"></image>
-        {{address}}
+        {{event.address}}
         <text>WeWork Nanjing West Road 3F
         </text>
     </view>
     <view class="time">
     <image class="reminder" src="../images/reminder.png"></image>
       <text>3:30 - 4:30</text>
-        {{start}} {{end}}
+        {{event.start}} {{event.end}}
     </view>
   </view>
 </view>

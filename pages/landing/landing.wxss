@@ -57,8 +57,9 @@
   left: 0%;
   bottom: 10%;
   position: fixed;
-  height: 150rpx;
-  width: 150rpx;
+  display: flex;
+  background-color: transparent;
+  border-radius: 50%;
 }
 
 .page-container{

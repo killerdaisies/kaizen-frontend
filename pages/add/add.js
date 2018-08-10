@@ -18,17 +18,12 @@ Page({
     let self = this;
     wx.chooseLocation({
       success: function (res) {
-        console.log("res", res);
         self.setData(
-          {latitude: res.latitude}
+          {latitude: res.latitude}, 
+          {longitude: res.longitude}, 
+          {address: res.address}
         )
-        self.setData(
-          {longitude: res.longitude}
-        )
-        self.setData({
-          address: res.address
-        })
-        console.log(self.data)
+        console.log(11, self.data)
       }
     })
   },
@@ -127,6 +122,7 @@ Page({
     let id = app.globalData.userId;
     let latitude = this.data.latitude;
     let longitude = this.data.longitude;
+
     let event = {
       "description": description,
       "address": address,
@@ -157,7 +153,7 @@ Page({
       }
     });
   },
- 
+
   joinEventUponCreation: function (eventId) {
     let id = app.globalData.userId;
     console.log("ed", eventId)

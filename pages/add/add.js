@@ -136,7 +136,8 @@ Page({
       "longitude": longitude
     };
 
-    console.log("id",id)
+    console.log("event",event)
+    
     let self = this;
     wx.request({
       url: app.globalData.apiHost + `/events`,

@@ -64,10 +64,10 @@
   </view>
 
   <view class ="decision-button">
-    <button class="accept-btn" type="primary" form-type="submit" loading="{{loading}}">
+    <button class="accept-btn" bindtap="accept" type="primary" form-type="submit" loading="{{loading}}">
       Accept
     </button>
-      <button  style="margin-top:55rpx; padding-bottom:1rpx; width:49.5%" type="warn" form-type="submit" loading="{{loading}}">
+      <button  bindtap="reject" style="margin-top:55rpx; padding-bottom:1rpx; width:49.5%" type="warn" form-type="submit" loading="{{loading}}">
       Reject
     </button>
   </view>

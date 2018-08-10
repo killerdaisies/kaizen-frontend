@@ -1,4 +1,5 @@
 // pages/invited/invited.js
+const app = getApp();
 Page({
 
   /**
@@ -32,14 +33,7 @@ Page({
     console.log(options, 182774)
     let page = this;
     wx.request({
-      // data: {
-      //   id: "",
-      //   address:"",
-      //   start_time:"",
-      //   end_time:"",
-      // }
-      // url: "https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/kaizenevents/${options.id}",
-      url: "https://easy-mock.com/mock/5b69043a87dadc0640e32b03/kaizen-fake-api/events-id",
+      url: app.globalData.apiHost + `/events`,
       method: 'GET',
       // success(res) {
       //   console.log(222, res.data.events[0]);
@@ -60,6 +54,9 @@ Page({
     // this.setData(app.globalData)
   },
 
+  accept: function(){
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

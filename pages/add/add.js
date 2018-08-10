@@ -99,21 +99,25 @@ Page({
     var capacity = e.detail.value.capacity;
     let startDate = this.data.startDate;
     let endDate = this.data.endDate;
+    let startTime = this.data.startTime;
+    let endTime = this.data.endTime;
     let id = app.globalData.userId;
-
+    
     let event = {
       "description": description,
       "address": address,
       "capacity": capacity,
-      "start_time": startDate,
-      "end_time": endDate,
+      "start_time": startTime ,
+      "end_time": endTime,
+      "start_date": startDate,
+      "end_date": endDate, 
       "user_id": id
     };
 
     console.log("id",id)
     let self = this;
     wx.request({
-      url: `https://kaizen-frontend.herokuapp.com/api/v1/events`,
+      url: app.globalData.apiHost + `/events`,
       method: 'POST',
       data: event,
       success: function(res) {
@@ -127,13 +131,13 @@ Page({
       }
     });
   },
-
+ 
   joinEventUponCreation: function (eventId) {
-    debugger
     let id = app.globalData.userId;
-
+    console.log("ed", eventId)
+    console.log("id", id)
     wx.request({
-      url: 'http://localhost:3000/api/v1/bookings',
+      url: app.globalData.apiHost + `/bookings`,
       method: 'POST',
       data: {
         "user_id": id,

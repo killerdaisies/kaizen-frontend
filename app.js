@@ -2,27 +2,25 @@
 App({
   onLaunch: function () {
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
+    // var logs = wx.getStorageSync('logs') || []
+    // logs.unshift(Date.now())
+    // wx.setStorageSync('logs', logs)
 
     // 登录
-    const host = 'https://kaizen-frontend.herokuapp.com/'
     console.log('processing to login')
     let self = this;
     wx.login({
       success: res => {
         console.log(233, res)
         wx.request({
-          url: host + 'api/v1/login',
+          url: self.globalData.apiHost + '/login',
           method: 'POST',
           data: {
             code: res.code
             // user: user
           },
           success: (res) => {
-            console.log(2333, self.globalData)
+            console.log(2333, res)
             self.globalData.userId = res.data.userId 
           }
         })
@@ -51,6 +49,9 @@ App({
     // })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    // apiHost: 'http://localhost:3000/api/v1'
+    apiHost: 'https://kaizen-frontend.herokuapp.com/api/v1'
+    // apiHost: 'http://kaizen.wogengapp.cn/api/v1'
   }
 })

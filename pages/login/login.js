@@ -33,7 +33,7 @@ Page({
     var users = app.globalData.users
     console.log(11,app.globalData.userInfo)
     wx.request({
-      url: 'https://kaizen-frontend.herokuapp.com/api/v1/users',
+      url: app.globalData.apiHost + `/users`,
       method: 'POST',
       data: user,
       success() {

@@ -58,14 +58,14 @@
     <view class="section">
       <textarea value="{{capacity}}" style="input-size" class="input-height" name="capacity" maxlength="-1" auto-height placeholder="Capacity"/>
     </view>
+
+    <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}">Save</button>
   </view>
 
 
     <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}">Save</button>
   </form>
 
-
-<!-- </template> -->
-<template is="form"/>
+<!-- <template is="form"/> -->
 </view>
 

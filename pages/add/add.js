@@ -11,15 +11,19 @@ Page({
     endTime: '',
     latitude: '',
     longitude: '',
+    address: ''
   },
 
   chooseLocation: function () {
+    let self = this;
     wx.chooseLocation({
       success: function (res) {
-        console.log();
-        const latitude = res.latitude
-        const longitude = res.longitude
-        this.setData({latitude, longitude})
+        self.setData(
+          {latitude: res.latitude}, 
+          {longitude: res.longitude}, 
+          {address: res.address}
+        )
+        console.log(11, self.data)
       }
     })
   },
@@ -116,9 +120,9 @@ Page({
     let startTime = this.data.startTime;
     let endTime = this.data.endTime;
     let id = app.globalData.userId;
+    let latitude = this.data.latitude;
+    let longitude = this.data.longitude;
 
-//     let latitude = this.data.latitude;
-//     let longitude = this.data.longitude;
     let event = {
       "description": description,
       "address": address,
@@ -126,10 +130,10 @@ Page({
       "start_time": startTime ,
       "end_time": endTime,
       "start_date": startDate,
-      "end_date": endDate, 
-      "user_id": id
-//       "latitude": latitude,
-//       "longitude": longitude
+      "end_date": endDate,
+      "user_id": id,
+      "latitude": latitude,
+      "longitude": longitude
     };
 
     console.log("id",id)
@@ -149,7 +153,7 @@ Page({
       }
     });
   },
- 
+
   joinEventUponCreation: function (eventId) {
     let id = app.globalData.userId;
     console.log("ed", eventId)

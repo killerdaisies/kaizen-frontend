@@ -23,16 +23,19 @@
     </view>
 
     <view class="date">
+    <image class="icon" src="../images/time.png"></image>
         {{start}}
         <text>07/08/2018 Tuesday 2:30-5:30pm</text>
     </view>
 
     <view class="address">
+    <image class="icon" src="../images/location.png"></image>
         {{address}}
         <text>WeWork Nanjing West Road 3F
         </text>
     </view>
     <view class="time">
+    <image class="reminder" src="../images/reminder.png"></image>
       <text>3:30 - 4:30</text>
         {{start}} {{end}}
     </view>

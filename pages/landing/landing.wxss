@@ -19,9 +19,11 @@
 
 .card-title .name{
   font-size: 20px;
-  color: white;
+  font-weight: 500;
   padding: 10px;
-  padding-top: 20px;
+  position: relative;
+  left: 72rpx; 
+  margin-bottom:8rpx;
 }
 
 .card-mainInfo {
@@ -61,20 +63,39 @@
 
 .page-container{
   /* border: solid grey; */
-
   height: 800px;
   width: 100%;
   /*top: 250rpx;*/
-  position: absolute;
+  /* position: absolute; */
   margin-top: 20rpx;
   display: flex;
   flex-direction: column;
 }
 
+page{
+display:flex;
+justify-content:center;
+}
 
+.inner-card{
+background-color: white;
+padding: 25rpx; 
+}
 
+.top-section{
+height: 400rpx;
+background-size: cover;
+}
 
+.title{
+  font-size: 30px;
+  width: 20%;
+  margin-top: 100rpx;
+  margin-left:50rpx;
+  color:white;
+  font-weight:350;
 
+}
 
 
 

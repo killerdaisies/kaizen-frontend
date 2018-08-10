@@ -15,10 +15,10 @@
   <view wx:for="{{events}}" wx:for-item="event" wx:key="event.id" bindtap="showItem" data-event= "{{event}}" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('');">
 
     <view class="card-title">
+      
       <view class="name">
           {{event.description}}
       </view>
-
       <view class="card-mainInfo">
 
         <view class="time">

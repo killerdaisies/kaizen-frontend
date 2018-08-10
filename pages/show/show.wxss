@@ -5,6 +5,10 @@
   height: 36%;
   background: #FFFFFF;
 } */
+.top-section {
+    background: linear-gradient(68deg, rgba(45,157,121,0.9654236694677871) 0%, rgba(36,139,158,0.9458158263305322) 76%, rgba(34,134,179,0.9542191876750701) 100%);
+  height: 150px;
+}
 
 .card-title .name{
   font-size: 32px;
@@ -143,7 +147,7 @@
 }
 
 .share-btn{
-  background-image: linear-gradient( 68.8deg,  rgba(119,202,189,1) 17.9%, rgba(91,178,218,1) 93.1% );
+  background: linear-gradient(68deg, rgba(45,157,121,0.9654236694677871) 0%, rgba(36,139,158,0.9458158263305322) 76%, rgba(34,134,179,0.9542191876750701) 100%);
   color: white;
   /* margin-top: 52rpx;
   position: relative; */

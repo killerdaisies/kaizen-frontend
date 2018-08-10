@@ -13,17 +13,20 @@
 }*/
 
 .card-title{
-  border-bottom: solid grey;
+  background: linear-gradient(68deg, rgba(45,157,121,0.9654236694677871) 0%, rgba(36,139,158,0.9458158263305322) 76%, rgba(34,134,179,0.9542191876750701) 100%);
+  height: 60px;
 }
 
 .card-title .name{
   font-size: 20px;
+  color: white;
   padding: 10px;
-  /*padding-top: 20px;*/
+  padding-top: 20px;
 }
 
 .card-mainInfo {
   position: relative;
+  color: whitesmoke;
   bottom: 10px;
   right: 10px;
   font-size: 10px;
@@ -57,9 +60,10 @@
 }
 
 .page-container{
-  border: solid grey;
+  /* border: solid grey; */
+
   height: 800px;
-  width: 95%;
+  width: 100%;
   /*top: 250rpx;*/
   position: absolute;
   margin-top: 20rpx;

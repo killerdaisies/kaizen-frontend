@@ -32,27 +32,6 @@ Page({
     })
   },
 
-  editEvent: function (e) {
-    const data = e.currentTarget.dataset;
-
-    wx.navigateTo({
-      // url: '/pages/editshow/editshow?id=' + res.data.id
-      url: `/pages/edit/edit?id=${data.id}`
-    });
-  },
-
-  deleteEvent(e) {
-    const data = e.currentTarget.dataset;
-
-    const events = app.globalData.events
-    let index = events.findIndex(event => event.id === data.id);
-
-    events.splice(index, 1);
-
-    wx.redirectTo({
-      url: '/pages/landing/landing'
-    });
-  },
   // saveTap: function() {
   //   let startDate = this.data.startDate;
   //   let endDate = this.data.endDate;
@@ -208,7 +187,6 @@ Page({
 
     // Update local data
     this.setData(events[index]);
-
   },
 
   /**

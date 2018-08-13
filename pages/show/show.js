@@ -32,6 +32,24 @@ Page({
       url: `../index/index?query=${category}`,
     })
   },
+
+  editEvent: function (e) {
+    const data = e.currentTarget.dataset;
+
+    wx.navigateTo({
+      // url: '/pages/editshow/editshow?id=' + res.data.id
+      url: `/pages/edit/edit?id=${data.id}`
+    });
+  },
+
+  deleteEvent(e) {
+    const data = e.currentTarget.dataset;
+    method: 'DELETE',
+
+    wx.redirectTo({
+      url: '/pages/landing/landing'
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -40,7 +58,7 @@ Page({
     console.log("hello", options)
     wx.request({
       url: app.globalData.apiHost + `/events/${options.id}`,
-           
+
       method: 'GET',
       // success(res) {
       //   console.log(222, res.data.events[0]);
@@ -60,6 +78,11 @@ Page({
     });
     // console.log(12, options.query)
     // this.setData(app.globalData)
+    const events = app.globalData.events
+    let index = events.findIndex(event => event.id.toString() === options.id);
+
+    // Update local data
+    this.setData(events[index]);
   },
 
   onShareAppMessage: function () {

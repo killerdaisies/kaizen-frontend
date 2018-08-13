@@ -31,6 +31,7 @@ Page({
         wx.hideToast();
       }
     });
+    this.setData(app.globalData)
     // console.log(12, options.query)
     // this.setData(app.globalData)
   },

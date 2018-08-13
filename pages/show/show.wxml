@@ -15,6 +15,15 @@
   <image class="avatar" src="{{user.avatar_url}}"></image>
 </view>
 </view>
+
+    <button class= "edit-button" bindtap="editEvent" data-id="{{id}}">
+      Edit
+    </button>
+
+    <button class= "delete-button" bindtap="deleteEvent" data-id="{{id}}">
+      Deleter the destroyer
+    </button>
+
 <view class="page-container">
   <view class="card-title">
     <view class="name">

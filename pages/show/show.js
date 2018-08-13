@@ -26,20 +26,11 @@ Page({
 
   },
 
-  viewParticipants: function (e) {
-    let participants = e.target.dataset.participants
-    wx.navigateTo({
-      url: `../index/index?query=${category}`,
-    })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     let page = this;
     console.log("hello", options)
     wx.request({
-      url: app.globalData.apiHost + `events/${options.id}`,
+      url: app.globalData.apiHost + `/events/${options.id}`,
 
       method: 'GET',
       // success(res) {
@@ -62,6 +53,16 @@ Page({
     this.setData(app.globalData)
   },
 
+  viewParticipants: function (e) {
+    let participants = e.target.dataset.participants
+    wx.navigateTo({
+      url: `../index/index?query=${category}`,
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+
   editEvent: function (e) {
     const data = e.currentTarget.dataset;
     console.log('schmacked')
@@ -74,10 +75,10 @@ Page({
   deleteEvent: function (e) {
     const data = e.currentTarget.dataset;
     const id = data.id;
-    // const user_id = data.user_id;
+    console.log(id)
 
     wx.request ({
-      url: app.globalData.apiHost + `/events/${data.id}`,
+      url: app.globalData.apiHost + `/events/${id}`,
       method: 'DELETE',
         success() {
           wx.reLaunch({
@@ -105,8 +106,8 @@ Page({
     wx.getLocation({
       type: 'wgs84',
         success: function(res) {
-          var latitude = res.latitude
-          var longitude = res.longitude
+          const latitude = res.latitude
+          const longitude = res.longitude
           wx.openLocation({
            latitude: latitude,
            longitude: longitude,

@@ -32,12 +32,6 @@ Page({
     })
   },
 
-  editEvent: function () {
-    wx.navigateTo({
-      // url: '/pages/editshow/editshow?id=' + res.data.id
-      url: '/pages/edit/edit'
-    });
-  },
   // saveTap: function() {
   //   let startDate = this.data.startDate;
   //   let endDate = this.data.endDate;

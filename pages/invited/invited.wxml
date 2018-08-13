@@ -2,7 +2,7 @@
 <view class="top-section">
 
   <view class="background" style='background-image:  linear-gradient(to bottom,  rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(https://cdn.cnn.com/cnnnext/dam/assets/180806212336-03-ohio-troy-balderson-exlarge-tease.jpg);'/>
- 
+
 <view class="image-container">
  <image class="backspace" src="../images/back-arrow.png"></image>
   <view class="avatar-details">
@@ -19,7 +19,7 @@
 <view class="page-container">
   <view class="card-title">
     <view class="name">
-        {{description}} 
+        {{description}}
         <text>Demo-Day</text>
     </view>
 
@@ -61,6 +61,9 @@
   </view>
 
   <view class ="decision-button">
+    <button class="share-btn" open-type="share" type="warning">
+      Send Invite
+    </button>
     <button class="accept-btn" bindtap="accept" type="primary" form-type="submit" loading="{{loading}}">
       Accept
     </button>

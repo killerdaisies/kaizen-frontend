@@ -54,16 +54,24 @@ Page({
     // this.setData(app.globalData)
   },
 
-  accept: function(){
+  onShareAppMessage: function () {
+    console.log('share')
+    return {
+      title: 'Event Invite',
+      path: `/pages/invited/invited?id=${event.id}`,
+    }
+  },
+
+  accept: function(e) {
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo
     });
 
-    var nickName = app.globalData.userInfo.nickName;
-    var avatarUrl = app.globalData.userInfo.avatarUrl;
-    var city = e.detail.userInfo.province;
-    var id = app.globalData.userId;
+    const nickName = app.globalData.userInfo.nickName;
+    const avatarUrl = app.globalData.userInfo.avatarUrl;
+    const city = e.detail.userInfo.province;
+    const id = app.globalData.userId;
     console.log(1, id)
 
     let user = {
@@ -73,10 +81,10 @@ Page({
       "avatar_url": avatarUrl
     }
 
-    var users = app.globalData.users
+    const users = app.globalData.users
     console.log(11, app.globalData.userInfo)
     wx.request({
-      url: app.globalData.apiHost + `/users`,
+      url: app.globalData.apiHost + `/users/${user.id}/bookings`,
       method: 'POST',
       data: user,
       success() {
@@ -86,28 +94,28 @@ Page({
         });
       }
     });
-    
-    wx.request({
-      url: app.globalData.apiHost + `/events`,
-      method: 'GET',
-      // success(res) {
-      //   console.log(222, res.data.events[0]);
-      //   const events = res.data.events;
-      //   page.setData({
-      //     events: events
-      //   });
-      success(res) {
-        const item = res.data;
-        console.log(res.data)
-        page.setData(
-          item
-        );
-        wx.hideToast();
-      }
-    });
   },
 
-  reject: function(){
+  //   wx.request({
+  //     url: app.globalData.apiHost + `/events`,
+  //     method: 'GET',
+  //     // success(res) {
+  //     //   console.log(222, res.data.events[0]);
+  //     //   const events = res.data.events;
+  //     //   page.setData({
+  //     //     events: events
+  //     //   });
+  //     success(res) {
+  //       const item = res.data;
+  //       console.log(res.data)
+  //       page.setData(
+  //         item
+  //       );
+  //       wx.hideToast();
+  //     }
+  //   });
+
+  reject: function () {
     wx.showToast({
       title: 'Event Rejected',
       icon: 'success',

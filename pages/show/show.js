@@ -39,7 +39,7 @@ Page({
     let page = this;
     console.log("hello", options)
     wx.request({
-      url: app.globalData.apiHost + `/events/${options.id}`,
+      url: app.globalData.apiHost + `/users/${app.globalData.userId}/events/${options.id}`,
            
       method: 'GET',
       // success(res) {

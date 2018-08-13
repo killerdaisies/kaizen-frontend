@@ -124,7 +124,7 @@ Page({
     });
 
     let description = e.detail.value.description
-    let address = e.detail.value.address;
+    let address = this.data.address;
     let capacity = e.detail.value.capacity;
     let startDate = this.data.startDate;
     let endDate = this.data.endDate;
@@ -133,7 +133,7 @@ Page({
     let id = app.globalData.userId;
     let latitude = this.data.latitude;
     let longitude = this.data.longitude;
-
+    console.log("address",address)
     let event = {
       "description": description,
       "address": address,
@@ -151,7 +151,7 @@ Page({
 
     let self = this;
     wx.request({
-      url: app.globalData.apiHost + `/events`,
+      url: app.globalData.apiHost + `users/${app.globalData.userId}/events`,
       method: 'POST',
       data: event,
       success: function(res) {
@@ -171,7 +171,7 @@ Page({
     console.log("ed", eventId)
     console.log("id", id)
     wx.request({
-      url: app.globalData.apiHost + `/bookings`,
+      url: app.globalData.apiHost + `users/${app.globalData.userId}/bookings`,
       method: 'POST',
       data: {
         "user_id": id,

@@ -6,7 +6,7 @@
 <view class="image-container">
   <view class="avatar-details">
     <view class="avatar-name">
-      {{user.wechat_name}} <text>Jackson Cheung</text>
+      {{user.wechat_name}}
     </view>
     <view class="avatar-status">
       <text>Host</text>
@@ -19,13 +19,12 @@
   <view class="card-title">
     <view class="name">
         {{description}}
-        <text>Demo-Day</text>
     </view>
 
     <view class="date">
 
     <image class="icon" src="../images/time.png"></image>
-        {{start}}
+        {{start}} - {{end}}
         <!-- <text>07/08/2018 Tuesday 2:30-5:30pm</text> -->
     </view>
 

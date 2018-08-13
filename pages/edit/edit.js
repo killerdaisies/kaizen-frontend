@@ -187,6 +187,11 @@ Page({
     });
   },
   onLoad: function (options) {
+    const events = app.globalData.events
+    let index = events.findIndex(event => event.id.toString() === options.id);
+
+    // Update local data
+    this.setData(events[index]);
 
   },
 

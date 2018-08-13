@@ -1,4 +1,4 @@
-// pages/add/add.js
+// pages/edit/edit.js
 const app = getApp()
 Page({
   /**

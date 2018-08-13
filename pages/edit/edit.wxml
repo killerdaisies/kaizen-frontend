@@ -1,4 +1,4 @@
-<!--pages/add/add.wxml-->
+<!--pages/edit/edit.wxml-->
 <view style="margin-bottom:26rpx"type="primary" loading="{{loading}}">
   <view class="add-avatar">
     <button class= "add-button" bindtap="pickImage"> Add a photo
@@ -6,10 +6,6 @@
     </button>
   </view>
 </view>
-
-    <button class= "edit-button" bindtap="editEvent">
-      Edit
-    </button>
 
 <view class="form">
 <!-- <template name="form" data="{{data}}"> -->

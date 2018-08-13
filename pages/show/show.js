@@ -1,4 +1,5 @@
 // show.js
+const app = getApp()
 Page({
 
   /**
@@ -36,9 +37,10 @@ Page({
    */
   onLoad: function (options) {
     let page = this;
-    console.log("hello",options)
+    console.log("hello", options)
     wx.request({
       url: app.globalData.apiHost + `/events/${options.id}`,
+           
       method: 'GET',
       // success(res) {
       //   console.log(222, res.data.events[0]);
@@ -47,8 +49,9 @@ Page({
       //     events: events
       //   });
       success(res) {
+        console.log(11, res.data)
+
         const event = res.data;
-        console.log(res.data)
         page.setData(
           event
         );

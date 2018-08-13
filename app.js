@@ -21,7 +21,7 @@ App({
           },
           success: (res) => {
             console.log(2333, res)
-            self.globalData.userId = res.data.userId 
+            self.globalData.userId = res.data.userId
           }
         })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -50,8 +50,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    apiHost: 'http://localhost:3000/api/v1'
+    // apiHost: 'http://localhost:3000/api/v1'
     // apiHost: 'https://kaizen-frontend.herokuapp.com/api/v1'
-    // apiHost: 'http://kaizen.wogengapp.cn/api/v1'
+    apiHost: 'http://kaizen.wogengapp.cn/api/v1'
   }
 })

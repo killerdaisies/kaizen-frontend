@@ -71,13 +71,20 @@ Page({
     });
   },
 
-  deleteEvent(e) {
+  deleteEvent: function (e) {
     const data = e.currentTarget.dataset;
-    method: 'DELETE',
-    console.log('schmacked')
-    wx.redirectTo({
-      url: '/pages/landing/landing'
-    });
+    const id = data.id;
+    // const user_id = data.user_id;
+
+    wx.request ({
+      url: app.globalData.apiHost + `/events/${data.id}`,
+      method: 'DELETE',
+        success() {
+          wx.reLaunch({
+            url: '/pages/landing/landing'
+          });
+        },
+      });
   },
 
   onShareAppMessage: function () {

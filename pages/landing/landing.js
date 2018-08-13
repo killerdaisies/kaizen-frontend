@@ -38,7 +38,7 @@ Page({
   showItem(e) {
     const data = e.currentTarget.dataset;
     const event = data.event;
-    console.log(event)
+    console.log(22, event)
     wx.navigateTo({
       url: `../show/show?id=${event.id}`
     });

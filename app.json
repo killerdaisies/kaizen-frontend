@@ -7,7 +7,8 @@
     "pages/show/show",
     "pages/list/list",
     "pages/map/map",
-    "pages/invited/invited"
+    "pages/invited/invited",
+    "pages/edit/edit"
   ],
   "window": {
     "backgroundTextStyle": "light",

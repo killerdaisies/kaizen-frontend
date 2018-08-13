@@ -117,7 +117,7 @@ Page({
     });
 
     let description = e.detail.value.description
-    let address = e.detail.value.address;
+    let address = this.data.address;
     let capacity = e.detail.value.capacity;
     let startDate = this.data.startDate;
     let endDate = this.data.endDate;
@@ -126,7 +126,7 @@ Page({
     let id = app.globalData.userId;
     let latitude = this.data.latitude;
     let longitude = this.data.longitude;
-
+    console.log("address",address)
     let event = {
       "description": description,
       "address": address,

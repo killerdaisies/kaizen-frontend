@@ -39,8 +39,8 @@ Page({
     let page = this;
     console.log("hello", options)
     wx.request({
-      url: app.globalData.apiHost + `/users/${app.globalData.userId}/events/${options.id}`,
-           
+      url: app.globalData.apiHost + `events/${options.id}`,
+
       method: 'GET',
       // success(res) {
       //   console.log(222, res.data.events[0]);
@@ -58,8 +58,33 @@ Page({
         wx.hideToast();
       }
     });
-    // console.log(12, options.query)
-    // this.setData(app.globalData)
+    console.log(12, options.query)
+    this.setData(app.globalData)
+  },
+
+  editEvent: function (e) {
+    const data = e.currentTarget.dataset;
+    console.log('schmacked')
+    wx.navigateTo({
+      // url: '/pages/editshow/editshow?id=' + res.data.id
+      url: `/pages/edit/edit?id=${data.id}`
+    });
+  },
+
+  deleteEvent: function (e) {
+    const data = e.currentTarget.dataset;
+    const id = data.id;
+    // const user_id = data.user_id;
+
+    wx.request ({
+      url: app.globalData.apiHost + `/events/${data.id}`,
+      method: 'DELETE',
+        success() {
+          wx.reLaunch({
+            url: '/pages/landing/landing'
+          });
+        },
+      });
   },
 
   onShareAppMessage: function () {

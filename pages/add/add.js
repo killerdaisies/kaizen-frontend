@@ -151,7 +151,7 @@ Page({
 
     let self = this;
     wx.request({
-      url: app.globalData.apiHost + `users/${app.globalData.userId}/events`,
+      url: app.globalData.apiHost + `/users/${app.globalData.userId}/events`,
       method: 'POST',
       data: event,
       success: function(res) {
@@ -171,7 +171,7 @@ Page({
     console.log("ed", eventId)
     console.log("id", id)
     wx.request({
-      url: app.globalData.apiHost + `users/${app.globalData.userId}/bookings`,
+      url: app.globalData.apiHost + `/users/${app.globalData.userId}/bookings`,
       method: 'POST',
       data: {
         "user_id": id,

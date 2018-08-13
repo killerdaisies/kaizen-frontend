@@ -21,7 +21,7 @@ Page({
     console.log(options, 182774)
     let page = this;
     wx.request({
-      url: app.globalData.apiHost + `/events`,
+      url: app.globalData.apiHost + `/users/${app.globalData.userId}/events`,
       method: 'GET',
       success(res) {
         const events = res.data.events;

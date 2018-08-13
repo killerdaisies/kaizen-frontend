@@ -55,7 +55,67 @@ Page({
   },
 
   accept: function(){
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo
+    });
 
+    var nickName = app.globalData.userInfo.nickName;
+    var avatarUrl = app.globalData.userInfo.avatarUrl;
+    var city = e.detail.userInfo.province;
+    var id = app.globalData.userId;
+    console.log(1, id)
+
+    let user = {
+      "id": id,
+      "wechat_name": nickName,
+      "city": city,
+      "avatar_url": avatarUrl
+    }
+
+    var users = app.globalData.users
+    console.log(11, app.globalData.userInfo)
+    wx.request({
+      url: app.globalData.apiHost + `/users`,
+      method: 'POST',
+      data: user,
+      success() {
+        console.log("he");
+        wx.reLaunch({
+          url: '/pages/landing/landing',
+        });
+      }
+    });
+    
+    wx.request({
+      url: app.globalData.apiHost + `/events`,
+      method: 'GET',
+      // success(res) {
+      //   console.log(222, res.data.events[0]);
+      //   const events = res.data.events;
+      //   page.setData({
+      //     events: events
+      //   });
+      success(res) {
+        const item = res.data;
+        console.log(res.data)
+        page.setData(
+          item
+        );
+        wx.hideToast();
+      }
+    });
+  },
+
+  reject: function(){
+    wx.showToast({
+      title: 'Event Rejected',
+      icon: 'success',
+      duration: 3000
+    });
+    wx.reLaunch({
+      url: 'pages/landing/landing',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

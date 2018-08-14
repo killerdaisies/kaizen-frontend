@@ -5,10 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    startDate: '',
-    endDate: '',
-    startTime: '',
-    endTime: '',
+    start_date: '',
+    end_date: '',
+    start_time: '',
+    end_time: '',
     latitude: '',
     longitude: '',
     address:''
@@ -40,7 +40,7 @@ Page({
   },
   // saveTap: function() {
   //   let startDate = this.data.startDate;
-  //   let endDate = this.data.endDate;
+  //   let end_date = this.data.end_date;
 
   //   console.log(23,this)
 
@@ -67,14 +67,14 @@ Page({
   bindDateChange1: function(event) {
     console.log("bindDateChange1: ", event.detail.value)
     this.setData({
-      startDate: event.detail.value
+      start_date: event.detail.value
     })
   },
 
   bindDateChange2: function (event) {
     console.log("bindDateChange2: ", event.detail.value)
     this.setData({
-      endDate: event.detail.value
+      end_date: event.detail.value
     })
     console.log(this.data)
   },
@@ -82,7 +82,7 @@ Page({
   bindTimeChange1: function (event) {
     console.log("bindTimeChange1: ", event.detail.value)
     this.setData({
-      startTime: event.detail.value
+      start_time: event.detail.value
     })
     console.log(this.data)
   },
@@ -90,7 +90,7 @@ Page({
   bindTimeChange2: function (event) {
     console.log("bindTimeChange2: ", event.detail.value)
     this.setData({
-      endTime: event.detail.value
+      end_time: event.detail.value
     })
     console.log(this.data)
   },
@@ -124,40 +124,42 @@ Page({
     });
 
     let description = e.detail.value.description
-    let address = e.detail.value.address;
+    let address = this.data.address;
     let capacity = e.detail.value.capacity;
-    let startDate = this.data.startDate;
-    let endDate = this.data.endDate;
-    let startTime = this.data.startTime;
-    let endTime = this.data.endTime;
+    let start_date = this.data.start_date;
+    let end_date = this.data.end_date;
+    let start_time = this.data.start_time;
+    let end_time = this.data.end_time;
     let id = app.globalData.userId;
     let latitude = this.data.latitude;
     let longitude = this.data.longitude;
+    let event_id = this.data.id;
 
     let event = {
       "description": description,
       "address": address,
       "capacity": capacity,
-      "start_time": startTime ,
-      "end_time": endTime,
-      "start_date": startDate,
-      "end_date": endDate,
+      "start_time": start_time ,
+      "end_time": end_time,
+      "start_date": start_date,
+      "end_date": end_date,
       "user_id": id,
       "latitude": latitude,
-      "longitude": longitude
+      "longitude": longitude,
+      "event_id": event_id
     };
 
     console.log("event",event)
 
     let self = this;
     wx.request({
-      url: app.globalData.apiHost + `users/${app.globalData.userId}/events`,
-      method: 'POST',
+      url: app.globalData.apiHost + `/events/${event_id}`,
+      method: 'PUT',
       data: event,
       success: function(res) {
         // set data on index page and show
         console.log("he", res);
-        self.joinEventUponCreation(res.data.id)
+        // self.joinEventUponCreation(res.data.id)
         wx.navigateTo({
           // url: '/pages/editshow/editshow?id=' + res.data.id
           url: '/pages/landing/landing'
@@ -166,28 +168,51 @@ Page({
     });
   },
 
-  joinEventUponCreation: function (eventId) {
-    let id = app.globalData.userId;
-    console.log("ed", eventId)
-    console.log("id", id)
+  // joinEventUponCreation: function (eventId) {
+  //   let id = app.globalData.userId;
+  //   console.log("ed", eventId)
+  //   console.log("id", id)
+  //   wx.request({
+  //     url: app.globalData.apiHost + `users/${app.globalData.userId}/bookings`,
+  //     method: 'POST',
+  //     data: {
+  //       "user_id": id,
+  //       "event_id": eventId
+  //     },
+  //     success: function (res) {
+  //       // set data on index page and show
+  //       console.log("hee");
+  //       // wx.navigateTo({
+  //       //   url: '/pages/editshow/editshow?id=' + res.data.id
+  //       // });
+  //     }
+  //   });
+  // },
+  onLoad: function (options) {
+    let page = this;
+    console.log("hello", options)
     wx.request({
-      url: app.globalData.apiHost + `users/${app.globalData.userId}/bookings`,
-      method: 'POST',
-      data: {
-        "user_id": id,
-        "event_id": eventId
-      },
-      success: function (res) {
-        // set data on index page and show
-        console.log("hee");
-        // wx.navigateTo({
-        //   url: '/pages/editshow/editshow?id=' + res.data.id
-        // });
+      url: app.globalData.apiHost + `/events/${options.id}`,
+
+      method: 'GET',
+      // success(res) {
+      //   console.log(222, res.data.events[0]);
+      //   const events = res.data.events;
+      //   page.setData({
+      //     events: events
+      //   });
+      success(res) {
+        console.log(11, res.data)
+
+        const event = res.data;
+        page.setData(
+          event
+        );
+        wx.hideToast();
       }
     });
-  },
-  onLoad: function (options) {
-
+    console.log(12, options.query)
+    this.setData(app.globalData)
   },
 
   /**

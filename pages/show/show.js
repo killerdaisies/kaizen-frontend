@@ -6,42 +6,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    latitude: 23.099994,
-    longitude: 113.324520,
+    latitude: '',
+    longitude: '',
     markers: [{
       id: 1,
-      latitude: 23.099994,
-      longitude: 113.324520,
-      name: 'T.I.T 创意园'
+      latitude: '',
+      longitude: '',
+      name: ''
     }],
-    covers: [{
-      latitude: 23.099994,
-      longitude: 113.344520,
-      // iconPath: '/image/location.png'
-    }, {
-      latitude: 23.099994,
-      longitude: 113.304520,
-      // iconPath: '/image/location.png'
-    }]
-
   },
 
   onLoad: function (options) {
     let page = this;
     console.log("hello", options)
     wx.request({
-      url: app.globalData.apiHost + `/events/${options.id}`,
 
+      url: app.globalData.apiHost + `/events/${options.id}`,     
       method: 'GET',
-      // success(res) {
-      //   console.log(222, res.data.events[0]);
-      //   const events = res.data.events;
-      //   page.setData({
-      //     events: events
-      //   });
       success(res) {
         console.log(11, res.data)
-
         const event = res.data;
         page.setData(
           event
@@ -49,8 +32,9 @@ Page({
         wx.hideToast();
       }
     });
-    console.log(12, options.query)
-    this.setData(app.globalData)
+    console.log("page",page)
+    // console.log(12, options.query)
+    // this.setData(app.globalData)
   },
 
   viewParticipants: function (e) {
@@ -101,21 +85,22 @@ Page({
       url: '/pages/list/list',
     })
   },
-
-  listenerBtnGetLocation: function () {
-    wx.getLocation({
-      type: 'wgs84',
-        success: function(res) {
-          const latitude = res.latitude
-          const longitude = res.longitude
-          wx.openLocation({
-           latitude: latitude,
-           longitude: longitude,
-           scale: 28
-          })
-        }
-      })
-    },
+  
+  // listenerBtnGetLocation: function () {
+  //   wx.getLocation({
+  //     type: 'wgs84',
+  //     success: function(res) {
+  //       console.log("location", res)
+  //       var latitude = res.latitude
+  //       var longitude = res.longitude
+  //       wx.openLocation({
+  //         latitude: latitude,
+  //         longitude: longitude,
+  //         scale: 28
+  //       })
+  //     }
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

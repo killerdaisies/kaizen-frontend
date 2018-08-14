@@ -16,19 +16,11 @@ Page({
     }],
   },
 
-  viewParticipants: function (e) {
-    let participants = e.target.dataset.participants
-    wx.navigateTo({
-      url: `../index/index?query=${category}`,
-    })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     let page = this;
     console.log("hello", options)
     wx.request({
+
       url: app.globalData.apiHost + `/events/${options.id}`,     
       method: 'GET',
       success(res) {
@@ -45,6 +37,41 @@ Page({
     // this.setData(app.globalData)
   },
 
+  viewParticipants: function (e) {
+    let participants = e.target.dataset.participants
+    wx.navigateTo({
+      url: `../index/index?query=${category}`,
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+
+  editEvent: function (e) {
+    const data = e.currentTarget.dataset;
+    console.log('schmacked')
+    wx.navigateTo({
+      // url: '/pages/editshow/editshow?id=' + res.data.id
+      url: `/pages/edit/edit?id=${data.id}`
+    });
+  },
+
+  deleteEvent: function (e) {
+    const data = e.currentTarget.dataset;
+    const id = data.id;
+    console.log(id)
+
+    wx.request ({
+      url: app.globalData.apiHost + `/events/${id}`,
+      method: 'DELETE',
+        success() {
+          wx.reLaunch({
+            url: '/pages/landing/landing'
+          });
+        },
+      });
+  },
+
   onShareAppMessage: function () {
     console.log('share')
     return {
@@ -58,7 +85,7 @@ Page({
       url: '/pages/list/list',
     })
   },
-
+  
   // listenerBtnGetLocation: function () {
   //   wx.getLocation({
   //     type: 'wgs84',

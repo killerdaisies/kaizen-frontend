@@ -16,37 +16,37 @@
       </view>
 
       <!-- <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/> -->
-      <button class="btn-location" bindtap="chooseLocation">
-        Location
+      <button class="btn-location" bindtap="chooseLocation" data-address="{{address}}">
+        {{address}}
       </button>
   </view>
 
   <view class="start-end-type">
   <view class="section">
-      <picker mode="date" value="{{startDate}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange1">
+      <picker mode="date" value="{{start_date}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange1">
         <view class="picker">
-          <text class="bold">Start Date:</text> {{startDate}}
+          <text class="bold">Start Date: </text> {{start_date}}
         </view>
       </picker>
       <view class="time">
-          <picker mode="time" value="{{startTime}}" start="09:01" end="23:59" bindchange="bindTimeChange1">
+          <picker mode="time" value="{{start_time}}" start="09:01" end="23:59" bindchange="bindTimeChange1">
           <view class="picker">
-           <text class="bold">Time:</text> {{startTime}}
+           <text class="bold">Time:</text> {{start_time}}
           </view>
         </picker>
       </view>
     </view>
 
     <view class="section">
-      <picker mode="date" value="{{endDate}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange2">
+      <picker mode="date" value="{{end_date}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange2">
         <view class="picker">
-          <text class="bold">End Date:</text> {{endDate}}
+          <text class="bold">End Date:</text> {{end_date}}
         </view>
       </picker>
       <view class="time">
-          <picker mode="time" value="{{endTime}}" start="00:02" end="23:59" bindchange="bindTimeChange2">
+          <picker mode="time" value="{{end_time}}" start="00:02" end="23:59" bindchange="bindTimeChange2">
           <view class="picker">
-            <text class="bold">Time:</text> {{endTime}}
+            <text class="bold">Time:</text> {{end_time}}
           </view>
         </picker>
       </view>

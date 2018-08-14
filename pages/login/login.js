@@ -17,10 +17,10 @@ Page({
       userInfo: e.detail.userInfo
     });
 
-    var nickName = app.globalData.userInfo.nickName;
-    var avatarUrl = app.globalData.userInfo.avatarUrl;
-    var city = e.detail.userInfo.province;
-    var id = app.globalData.userId;
+    const nickName = app.globalData.userInfo.nickName;
+    const avatarUrl = app.globalData.userInfo.avatarUrl;
+    const city = e.detail.userInfo.province;
+    const id = app.globalData.userId;
     console.log(1,id)
 
     let user = {
@@ -30,7 +30,7 @@ Page({
       "avatar_url": avatarUrl
     }
 
-    var users = app.globalData.users
+    const users = app.globalData.users
     console.log(11,app.globalData.userInfo)
     wx.request({
       url: app.globalData.apiHost + `/users`,

@@ -33,12 +33,6 @@ Page({
     })
   },
 
-  editEvent: function () {
-    wx.navigateTo({
-      // url: '/pages/editshow/editshow?id=' + res.data.id
-      url: '/pages/edit/edit'
-    });
-  },
   // saveTap: function() {
   //   let startDate = this.data.startDate;
   //   let endDate = this.data.endDate;
@@ -153,6 +147,7 @@ Page({
 
     let self = this;
     wx.request({
+
       url: app.globalData.apiHost + `/users/${id}/events`,
       method: 'POST',
       data: event,

@@ -75,7 +75,7 @@
   top: 0%;
   position: absolute;
   /* border: solid grey; */
-  
+
 }
 
 .avatar-status{
@@ -177,7 +177,16 @@
   justify-content: center;
   width: 100%;
 }
+.invite-button{
+  width: 100%;
+
+}
+
 
 page{
   background-color: #F9F7F7;
+}
+
+.login-container{
+  width:120px;
 }

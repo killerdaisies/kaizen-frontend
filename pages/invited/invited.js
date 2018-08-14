@@ -50,7 +50,7 @@ Page({
         city: city
       },
       success: (res) => {
-        app.globalData.userId = res.data.userId
+        app.globalData.userId = res.data.id
         wx.reLaunch({
           url: '/pages/invited/invited',
         });
@@ -126,9 +126,9 @@ Page({
       data: user,
       success() {
         console.log("he");
-        wx.reLaunch({
-          url: '/pages/landing/landing',
-        });
+        // wx.reLaunch({
+        //   url: '/pages/landing/landing',
+        // });
       }
     });
   },

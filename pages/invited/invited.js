@@ -1,7 +1,7 @@
 // pages/invited/invited.js
 const app = getApp();
 Page({
-  
+
   /**
    * 页面的初始数据
    */
@@ -36,16 +36,16 @@ Page({
     this.setData(user);
     app.globalData.userInfo = user
 
-    var nickName = app.globalData.userInfo.nickName;
-    var avatarUrl = app.globalData.userInfo.avatarUrl;
-    var city = app.globalData.userInfo.province;
+    const nickName = app.globalData.userInfo.nickName;
+    const avatarUrl = app.globalData.userInfo.avatarUrl;
+    const city = app.globalData.userInfo.province;
 
     wx.request({
       url: app.globalData.apiHost + `\/users\/${id}`,
       method: 'PUT',
       data: {
-        id: id, 
-        wechat_name: nickName, 
+        id: id,
+        wechat_name: nickName,
         avatar_url: avatarUrl,
         city: city
       },
@@ -91,24 +91,20 @@ Page({
     // console.log(12, options.query)
     // this.setData(app.globalData)
   },
-  
+
   onShareAppMessage: function () {
     console.log('share')
-    return {
-      title: 'Event Invite',
-      path: `/pages/invited/invited?id=${event.id}`,
-    }
   },
 
   accept: function(e) {
-    app.globalData.userInfo = e.detail.userInfo
+    // app.globalData.userInfo = e.detail.userInfo
     this.setData({
-      userInfo: e.detail.userInfo
+      userInfo: app.globalData.userInfo
     });
 
     const nickName = app.globalData.userInfo.nickName;
     const avatarUrl = app.globalData.userInfo.avatarUrl;
-    const city = e.detail.userInfo.province;
+    const city = app.globalData.userInfo.province;
     const id = app.globalData.userId;
 
     console.log(1, id)
@@ -119,6 +115,8 @@ Page({
       "city": city,
       "avatar_url": avatarUrl
     }
+
+    console.log(user)
 
     const users = app.globalData.users
     console.log(11, app.globalData.userInfo)

@@ -181,3 +181,7 @@
 page{
   background-color: #F9F7F7;
 }
+
+.login-container{
+  width:120px;
+}

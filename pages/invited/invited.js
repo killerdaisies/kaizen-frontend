@@ -1,7 +1,7 @@
 // pages/invited/invited.js
 const app = getApp();
 Page({
-
+  
   /**
    * 页面的初始数据
    */
@@ -26,44 +26,73 @@ Page({
 
   },
 
+  getUserInfo: function (e) {
+
+    let id = app.globalData.userId
+
+    let user = e.detail.userInfo
+    user.id = id
+
+    this.setData(user);
+    app.globalData.userInfo = user
+
+    var nickName = app.globalData.userInfo.nickName;
+    var avatarUrl = app.globalData.userInfo.avatarUrl;
+    var city = app.globalData.userInfo.province;
+
+    wx.request({
+      url: app.globalData.apiHost + `\/users\/${id}`,
+      method: 'PUT',
+      data: {
+        id: id, 
+        wechat_name: nickName, 
+        avatar_url: avatarUrl,
+        city: city
+      },
+      success: (res) => {
+        app.globalData.userId = res.data.userId
+        wx.reLaunch({
+          url: '/pages/invited/invited',
+        });
+      }
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log(options, 182774)
     let page = this;
-    wx.request({
-      url: app.globalData.apiHost + `/events`,
-      method: 'GET',
-      // success(res) {
-      //   console.log(222, res.data.events[0]);
-      //   const events = res.data.events;
-      //   page.setData({
-      //     events: events
-      //   });
-      success(res) {
-        const item = res.data;
-        console.log(res.data)
-        page.setData(
-          item
-        );
-        wx.hideToast();
-      }
+    let user = app.globalData.userInfo
+    console.log(88,user)
+    this.setData({
+      user: user
     });
+
+    // wx.request({
+    //   url: app.globalData.apiHost + `/events`,
+    //   method: 'GET',
+    //   // success(res) {
+    //   //   console.log(222, res.data.events[0]);
+    //   //   const events = res.data.events;
+    //   //   page.setData({
+    //   //     events: events
+    //   //   });
+    //   success(res) {
+    //     const item = res.data;
+    //     console.log(res.data)
+    //     page.setData(
+    //       item
+    //     );
+    //     wx.hideToast();
+    //   }
+    // });
     // console.log(12, options.query)
     // this.setData(app.globalData)
   },
 
   accept: function(){
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo
-    });
-
-    var nickName = app.globalData.userInfo.nickName;
-    var avatarUrl = app.globalData.userInfo.avatarUrl;
-    var city = e.detail.userInfo.province;
-    var id = app.globalData.userId;
     console.log(1, id)
 
     let user = {

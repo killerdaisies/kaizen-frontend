@@ -64,12 +64,12 @@ Page({
     wx.request ({
       url: app.globalData.apiHost + `/events/${id}`,
       method: 'DELETE',
-        success() {
-          wx.reLaunch({
-            url: '/pages/landing/landing'
-          });
-        },
-      });
+      success() {
+        wx.reLaunch({
+        url: '/pages/landing/landing'
+        });
+      },
+    });
   },
 
   onShareAppMessage: function () {

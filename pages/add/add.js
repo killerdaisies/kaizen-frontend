@@ -11,7 +11,8 @@ Page({
     endTime: '',
     latitude: '',
     longitude: '',
-    address:''
+    address:'',
+    // imageUrl:''
   },
 
   chooseLocation: function () {
@@ -91,11 +92,16 @@ Page({
   },
 
   pickImage: function () {
+    let page = this
     wx.chooseImage({
       success: function (res) {
-        console.log(res);
+        console.log("photo",res);
+        // page.setData({
+        //   imageUrl: res.tempFilePaths[0]
+        // })
       }
     })
+    console.log(page.data)
   },
 
   uploadPromise: function (tempFilePath) {
@@ -140,14 +146,14 @@ Page({
         "end_date": endDate,
         "user_id": id,
         "latitude": latitude,
-        "longitude": longitude}
+        "longitude": longitude,
+      }
     };
 
     console.log("event",event)
 
     let self = this;
     wx.request({
-
       url: app.globalData.apiHost + `/users/${id}/events`,
       method: 'POST',
       data: event,
@@ -177,7 +183,8 @@ Page({
       },
       success: function (res) {
         // set data on index page and show
-        console.log("hee");
+        console.log("hee", res.data.id);
+        app.globalData.bookingId = res.data.id
         // wx.navigateTo({
         //   url: '/pages/editshow/editshow?id=' + res.data.id
         // });

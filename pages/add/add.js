@@ -18,6 +18,7 @@ Page({
     let self = this;
     wx.chooseLocation({
       success: function (res) {
+        console.log(99, res)
         self.setData(
           {latitude: res.latitude}
         )
@@ -135,28 +136,30 @@ Page({
     let longitude = this.data.longitude;
     console.log("address",address)
     let event = {
-      "description": description,
-      "address": address,
-      "capacity": capacity,
-      "start_time": startTime ,
-      "end_time": endTime,
-      "start_date": startDate,
-      "end_date": endDate,
-      "user_id": id,
-      "latitude": latitude,
-      "longitude": longitude
+      "event": {
+        "description": description,
+        "address": address,
+        "capacity": capacity,
+        "start_time": startTime,
+        "end_time": endTime,
+        "start_date": startDate,
+        "end_date": endDate,
+        "user_id": id,
+        "latitude": latitude,
+        "longitude": longitude}
     };
 
     console.log("event",event)
 
     let self = this;
     wx.request({
-      url: app.globalData.apiHost + `users/${app.globalData.userId}/events`,
+      url: app.globalData.apiHost + `/users/${id}/events`,
       method: 'POST',
       data: event,
       success: function(res) {
         // set data on index page and show
-        console.log("he", res);
+        console.log("hey", res);
+        console.log("url", `/users/${id}/events`);
         self.joinEventUponCreation(res.data.id)
         wx.navigateTo({
           // url: '/pages/editshow/editshow?id=' + res.data.id
@@ -171,7 +174,7 @@ Page({
     console.log("ed", eventId)
     console.log("id", id)
     wx.request({
-      url: app.globalData.apiHost + `users/${app.globalData.userId}/bookings`,
+      url: app.globalData.apiHost + `/users/${app.globalData.userId}/bookings`,
       method: 'POST',
       data: {
         "user_id": id,

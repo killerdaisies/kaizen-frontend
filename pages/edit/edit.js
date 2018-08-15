@@ -157,11 +157,8 @@ Page({
       method: 'PUT',
       data: event,
       success: function(res) {
-        // set data on index page and show
         console.log("he", res);
-        // self.joinEventUponCreation(res.data.id)
         wx.navigateTo({
-          // url: '/pages/editshow/editshow?id=' + res.data.id
           url: '/pages/landing/landing'
         });
       }

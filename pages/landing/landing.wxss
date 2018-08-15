@@ -1,40 +1,134 @@
-/* pages/landing/landing.wxss */
-/*.card-wrapper {
-  height: 320px;
+.top-section-container {
+  /* width: 100%;
+  height: 100px; */
   position: relative;
-  left: 3px;
-  top: 6px;
+}
+
+.top-section{
+height: 300rpx;
+background-size: cover;
+} 
+
+
+.transparent-container{
+  opacity:0.14;
+  height:100%;
+  width:120px;
+  background-color:;
+  background-color:black;
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+.add-button {
+  height: 70rpx;
+  width: 70rpx;
+  position: absolute;
+  top: 0;
+  right:0;
+  border: solid red;
+}
+
+.button-container {
+  background-color: transparent;
+  border-radius: 50%;
+  position:absolute;
+  height:70rpx;
+  width:70rpx;
+  top: 0;
+  right:0;
+}
+
+.top-section .title {
+  font-size: 18px;
   display: inline-block;
-  width: 46%;
-  padding-bottom: 12px;
-  background-color: white;
-  border-radius: 8px 8px 10px 10px;
-  margin: 0 2% 0 1%;
-}*/
+  color: #343F5E;
+  opacity: 0.7;
+  position: absolute;
+  top: 20px; 
+  left: 25px;
+  margin: 0;
+}
+
+.calender-title {
+  position: absolute; 
+  top: 40px;
+  left: 25px;
+  color: #343F5E;
+  opacity: 0.7;
+}
+
+.header { 
+  color:#343F5E;
+  font-size:15px;
+  margin-left:15px;
+  margin-top:5px;
+  margin-bottom:0;
+  opacity:0.7;
+  font-weight:300px;
+}
+
+.inner-card{
+background-color: white;
+padding: 0;
+}
 
 .card-title{
-  background: linear-gradient(68deg, rgba(45,157,121,0.9654236694677871) 0%, rgba(36,139,158,0.9458158263305322) 76%, rgba(34,134,179,0.9542191876750701) 100%);
+  background: white;
   height: 60px;
-  width: 100%;
+  width: 100%; 
+  position: relative
 }
 
 .card-title .name{
-  font-size: 18px;
-  font-weight: 100;
-  color: white;
+  font-size: 16.5px;
+  font-weight: 400;
+  color: #343F5E;
   padding: 10px;
   margin-bottom:8rpx;
+  position:absolute;
+  top:5px;
+  left:38px;
 }
 
-.card-mainInfo {
-  position: relative;
-  color: whitesmoke;
-  bottom: 10px;
-  right: 10px;
+.time-start {
+  color:#343F5E;
+  opacity: 0.56;
   font-size: 10px;
   text-align: right;
+  position:absolute;
+  top:20px;
+  right:40px;
 }
 
+.time-end {
+  color:#343F5E;
+  opacity: 0.56;
+  font-size: 10px;
+  text-align: right;
+  position:absolute;
+  top:40px;
+  right:40px;
+}
+.location {
+  position:absolute;
+  bottom:2px;
+  left:45px;
+  font-size:10px;
+  color:#343F5E;
+  opacity:0.56;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-bottom: 1px solid black;
+    opacity: 0.2;
+    margin: 0 auto;
+    width: 90%;
+    padding: 0;
+}
 
 .weekly-schedule {
   border: solid grey;
@@ -43,48 +137,6 @@
   display: flex;
   flex-direction: row;
   margin-top: 50rpx;
-}
-
-.add-button {
-  height: 70rpx;
-  width: 70rpx;
-  top: 35%;
-  position: relative;
-}
-
-.button-container {
-  left: 0%;
-  bottom: 10%;
-  position: fixed;
-  display: flex;
-  background-color: transparent;
-  border-radius: 50%;
-}
-
-.page-container{
-  /* border: solid grey; */
-  height: 800px;
-  width: 100%;
-  /*top: 250rpx;*/
-  /* position: absolute; */
-  margin-top: 20rpx;
-  display: flex;
-  flex-direction: column;
-}
-
-page{
-display:flex;
-justify-content:center;
-}
-
-.inner-card{
-background-color: white;
-padding: 25rpx; 
-}
-
-.top-section{
-height: 400rpx;
-background-size: cover;
 }
 
 .title{
@@ -96,21 +148,3 @@ background-size: cover;
   font-weight:350;
 
 }
-
-.inner-card {
-  padding:0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-

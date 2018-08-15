@@ -24,7 +24,7 @@ Page({
       url: app.globalData.apiHost + `/users/${app.globalData.userId}/events`,
       method: 'GET',
       success(res) {
-        const events = res.data.events;
+        const events = res.data.booked_events;
         page.setData({
           events: events
         });
@@ -36,11 +36,10 @@ Page({
   },
 
   showItem(e) {
-    const data = e.currentTarget.dataset;
-    const event = data.event;
-    console.log(22, event)
+    const id = e.currentTarget.dataset.id;
+    console.log(22, id)
     wx.navigateTo({
-      url: `../show/show?id=${event.id}`
+      url: `../show/show?id=${id}`
     });
   },
 

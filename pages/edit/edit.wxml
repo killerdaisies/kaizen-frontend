@@ -23,13 +23,13 @@
 
   <view class="start-end-type">
   <view class="section">
-      <picker mode="date" value="{{start_date}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange1">
+      <picker mode="date" value="{{start_date}}" start="2018-08-14" end="2030-09-01" bindchange="bindDateChange1">
         <view class="picker">
           <text class="bold">Start Date: </text> {{start_date}}
         </view>
       </picker>
       <view class="time">
-          <picker mode="time" value="{{start_time}}" start="09:01" end="23:59" bindchange="bindTimeChange1">
+          <picker mode="time" value="{{start_time}}" start="00:00" end="23:59" bindchange="bindTimeChange1">
           <view class="picker">
            <text class="bold">Time:</text> {{start_time}}
           </view>
@@ -38,13 +38,13 @@
     </view>
 
     <view class="section">
-      <picker mode="date" value="{{end_date}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange2">
+      <picker mode="date" value="{{end_date}}" start="2018-08-14" end="2030-09-01" bindchange="bindDateChange2">
         <view class="picker">
           <text class="bold">End Date:</text> {{end_date}}
         </view>
       </picker>
       <view class="time">
-          <picker mode="time" value="{{end_time}}" start="00:02" end="23:59" bindchange="bindTimeChange2">
+          <picker mode="time" value="{{end_time}}" start="00:00" end="23:59" bindchange="bindTimeChange2">
           <view class="picker">
             <text class="bold">Time:</text> {{end_time}}
           </view>

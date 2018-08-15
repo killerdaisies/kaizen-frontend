@@ -17,7 +17,7 @@
 
         <!-- <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/> -->
         <button class="btn-location" bindtap="chooseLocation">
-          Location
+          Location: {{address}}
         </button>
     </view>
 
@@ -55,9 +55,6 @@
 
       <view class="section">
         <textarea value="{{capacity}}" style="input-size" class="input-height" name="capacity" maxlength="-1" auto-height placeholder="Capacity"/>
-      </view>
-
-      <view class="space">
       </view>
 
       <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}">Save</button>

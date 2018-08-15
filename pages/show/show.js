@@ -6,14 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    latitude: '',
-    longitude: '',
-    markers: [{
-      id: 1,
-      latitude: '',
-      longitude: '',
-      name: ''
-    }],
+    // latitude: '',
+    // longitude: '',
+    // markers: [{
+    //   id: 1,
+    //   latitude: '',
+    //   longitude: '',
+    //   name: ''
+    // }],
   },
 
   onLoad: function (options) {
@@ -36,6 +36,28 @@ Page({
     console.log("page",page)
     // console.log(12, options.query)
     // this.setData(app.globalData)
+  },
+
+  navigateTo: function(e) {
+    console.log("e", e)
+    console.log("j", e.currentTarget.dataset.address)
+    console.log("q", e.currentTarget.latitude)
+    let address = e.currentTarget.dataset.address
+    let latitude = e.currentTarget.dataset.latitude
+    let longitude = e.currentTarget.dataset.longitude 
+    wx.getLocation({
+      type: 'gcj02', //Returns latitudes and longitudes that can be used for wx.openLocation
+      success: function (res) {
+        // var latitude = res.latitude
+        // var longitude = res.longitude
+        wx.openLocation({
+          latitude: latitude,
+          longitude: longitude,
+          scale: 28,
+          address: address
+        })
+      }
+    })
   },
 
   viewParticipants: function (e) {

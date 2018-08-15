@@ -17,11 +17,12 @@ Page({
   },
 
   onLoad: function (options) {
+
     let page = this;
     console.log("hello", options)
     wx.request({
 
-      url: app.globalData.apiHost + `/events/${options.id}`,     
+      url: app.globalData.apiHost + `/events/${options.id}`,
       method: 'GET',
       success(res) {
         console.log(11, res.data)
@@ -72,8 +73,9 @@ Page({
     });
   },
 
-  onShareAppMessage: function () {
-    console.log('share')
+  onShareAppMessage: function (e) {
+    const data = e.currentTarget.dataset;
+    const id = data.id;
     return {
       title: 'Event Invite',
       path: `/pages/invited/invited?id=${event.id}`,
@@ -85,7 +87,7 @@ Page({
       url: '/pages/list/list',
     })
   },
-  
+
   // listenerBtnGetLocation: function () {
   //   wx.getLocation({
   //     type: 'wgs84',

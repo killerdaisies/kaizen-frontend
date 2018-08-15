@@ -64,11 +64,15 @@ Page({
   onLoad: function (options) {
     console.log(options, 182774)
     let page = this;
+    let event_id = options.event_id;
     let user = app.globalData.userInfo
     console.log(88,user)
     this.setData({
-      user: user
+      user: user,
+      event_id: event_id
     });
+
+    console.log("event",event_id)
 
     // wx.request({
     //   url: app.globalData.apiHost + `/events`,
@@ -98,34 +102,30 @@ Page({
 
   accept: function(e) {
     // app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: app.globalData.userInfo
-    });
-
-    const nickName = app.globalData.userInfo.nickName;
-    const avatarUrl = app.globalData.userInfo.avatarUrl;
-    const city = app.globalData.userInfo.province;
-    const id = app.globalData.userId;
+    // this.setData({
+    //   userInfo: app.globalData.userInfo
+    // });
+    let page = this;
+    let id = app.globalData.userId;
+    const users = app.globalData.users;
+    let event_id = this.data.event_id
 
     console.log(1, id)
 
-    let user = {
+    let booking = {
       "id": id,
-      "wechat_name": nickName,
-      "city": city,
-      "avatar_url": avatarUrl
+      "event_id": event_id
     }
 
-    console.log(user)
-
-    const users = app.globalData.users
+    console.log("word", booking)
     console.log(11, app.globalData.userInfo)
+
     wx.request({
-      url: app.globalData.apiHost + `/users/${user.id}/bookings`,
+      url: app.globalData.apiHost + `/users/${id}/bookings`,
       method: 'POST',
-      data: user,
-      success() {
-        console.log("he");
+      data: booking,
+      success(res) {
+        console.log(res);
         // wx.reLaunch({
         //   url: '/pages/landing/landing',
         // });

@@ -38,7 +38,6 @@ Page({
 
     const nickName = app.globalData.userInfo.nickName;
     const avatarUrl = app.globalData.userInfo.avatarUrl;
-    const city = app.globalData.userInfo.province;
 
     wx.request({
       url: app.globalData.apiHost + `\/users\/${id}`,
@@ -46,8 +45,7 @@ Page({
       data: {
         id: id,
         wechat_name: nickName,
-        avatar_url: avatarUrl,
-        city: city
+        avatar_url: avatarUrl
       },
       success: (res) => {
         app.globalData.userId = res.data.id
@@ -70,6 +68,21 @@ Page({
     this.setData({
       user: user,
       event_id: event_id
+    });
+
+    // new request to take id
+    wx.request({
+
+      url: app.globalData.apiHost + `/events/${options.id}`,
+      method: 'GET',
+      success(res) {
+        console.log(11, res.data)
+        const event = res.data;
+        page.setData(
+          event
+        );
+        wx.hideToast();
+      }
     });
 
     console.log("event",event_id)

@@ -17,9 +17,18 @@ Page({
   },
 
   onLoad: function (options) {
-
+    let currentUserId = app.globalData.userId
+    console.log(currentUserId)
     let page = this;
+    let event_id = options.event_id;
+    let user = app.globalData.userInfo
+    page.setData({
+      currentUserId: currentUserId,
+      user: user,
+      event_id: event_id
+    });
     console.log("hello", options)
+
     wx.request({
 
       url: app.globalData.apiHost + `/events/${options.id}`,
@@ -36,6 +45,36 @@ Page({
     console.log("page",page)
     // console.log(12, options.query)
     // this.setData(app.globalData)
+  },
+
+  getUserInfo: function (e) {
+
+    let id = app.globalData.userId
+
+    let user = e.detail.userInfo
+    user.id = id
+
+    this.setData(user);
+    app.globalData.userInfo = user
+
+    const nickName = app.globalData.userInfo.nickName;
+    const avatarUrl = app.globalData.userInfo.avatarUrl;
+
+    wx.request({
+      url: app.globalData.apiHost + `\/users\/${id}`,
+      method: 'PUT',
+      data: {
+        id: id,
+        wechat_name: nickName,
+        avatar_url: avatarUrl
+      },
+      success: (res) => {
+        app.globalData.userId = res.data.id
+        wx.reLaunch({
+          url: '/pages/invited/invited',
+        });
+      }
+    });
   },
 
   viewParticipants: function (e) {
@@ -73,13 +112,60 @@ Page({
       });
   },
 
-  onShareAppMessage: function (e) {
-    const data = e.currentTarget.dataset;
-    const id = data.id;
-    return {
-      title: 'Event Invite',
-      path: `/pages/invited/invited?id=${event.id}`,
+   accept: function(e) {
+    // app.globalData.userInfo = e.detail.userInfo
+    // this.setData({
+    //   userInfo: app.globalData.userInfo
+    // });
+    let page = this;
+    let id = app.globalData.userId;
+    const users = app.globalData.users;
+    let event_id = this.data.event_id
+
+    console.log(1, id)
+
+    let booking = {
+      "id": id,
+      "event_id": event_id
     }
+
+    console.log("word", booking)
+    console.log(11, app.globalData.userInfo)
+
+    wx.request({
+      url: app.globalData.apiHost + `/users/${id}/bookings`,
+      method: 'POST',
+      data: booking,
+      success(res) {
+        console.log(res);
+        // wx.reLaunch({
+        //   url: '/pages/landing/landing',
+        // });
+      }
+    });
+  },
+
+  reject: function () {
+    wx.showToast({
+      title: 'Event Rejected',
+      icon: 'success',
+      duration: 3000
+    });
+    wx.reLaunch({
+      url: 'pages/landing/landing',
+    })
+  },
+
+  onShareAppMessage: function (e) {
+    // const data = e.currentTarget.dataset;
+    // const id = data.id;
+    // return {
+    //   title: 'Event Invite',
+    //   path: `/pages/invited/invited?id=${event.id}`,
+    // },
+     wx.showShareMenu({
+     withShareTicket: true
+    })
   },
 
   viewList: function () {

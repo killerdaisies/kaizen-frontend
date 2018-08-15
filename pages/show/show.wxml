@@ -2,8 +2,7 @@
 <view class="top-section">
 
   <!-- <view class="background" style='background-image:  linear-gradient(to bottom,  rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(https://cdn.cnn.com/cnnnext/dam/assets/180806212336-03-ohio-troy-balderson-exlarge-tease.jpg);'/> -->
-
-  <view class="image-container">
+  <view class="image-container" style="background-image: url('{{photo}}');background-size: cover;">
     <view class="avatar-details">
       <view class="avatar-name">
         {{user.wechat_name}}

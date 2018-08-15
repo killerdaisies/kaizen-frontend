@@ -1,5 +1,7 @@
 // pages/add/add.js
 const app = getApp()
+const AV = require('../../utils/av-weapp-min.js');
+
 Page({
   /**
    * 页面的初始数据
@@ -12,7 +14,7 @@ Page({
     latitude: '',
     longitude: '',
     address:'',
-    // imageUrl:''
+    photo:''
   },
 
   chooseLocation: function () {
@@ -94,14 +96,27 @@ Page({
   pickImage: function () {
     let page = this
     wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'], 
       success: function (res) {
-        console.log("photo",res);
+        let tempFilePath = res.tempFilePaths[0]
+        page.uploadPromise(tempFilePath).then(res => {
+          console.log("you can execute anything here")
+          return res
+        }).then(res => {
+          console.log("or..")
+          return res
+        }).then(res => {
+          console.log(res)
+          page.setData({photo:res})
+        })
         // page.setData({
         //   imageUrl: res.tempFilePaths[0]
         // })
       }
     })
-    console.log(page.data)
+    console.log("pagedata",page.data)
   },
 
   uploadPromise: function (tempFilePath) {
@@ -134,6 +149,7 @@ Page({
     let id = app.globalData.userId;
     let latitude = this.data.latitude;
     let longitude = this.data.longitude;
+    let photo = this.data.photo;
     console.log("address",address)
     let event = {
       "event": {
@@ -147,6 +163,7 @@ Page({
         "user_id": id,
         "latitude": latitude,
         "longitude": longitude,
+        "photo": photo
       }
     };
 

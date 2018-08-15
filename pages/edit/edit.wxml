@@ -1,16 +1,15 @@
 <!--pages/edit/edit.wxml-->
 <view style="margin-bottom:26rpx"type="primary" loading="{{loading}}">
   <view class="add-avatar">
-    <button class= "add-button" bindtap="pickImage"> Add a photo
-      <image class= "camera" src="../images/camera.png"></image>
-    </button>
+    <button class= "add-button" bindtap="pickImage" style="background-image: url(../images/whitecamera.png);">
+      </button>
   </view>
 </view>
 
 <view class="form">
 <!-- <template name="form" data="{{data}}"> -->
   <form bindsubmit="bindSubmit">
-  <view class="title-location">
+  <view class="box-group">
       <view class="section">
       <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Title'/>
       </view>
@@ -21,8 +20,8 @@
       </button>
   </view>
 
-  <view class="start-end-type">
-  <view class="section">
+  <view class="box-group">
+  <view class="section date-time">
       <picker mode="date" value="{{start_date}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange1">
         <view class="picker">
           <text class="bold">Start Date: </text> {{start_date}}
@@ -37,7 +36,7 @@
       </view>
     </view>
 
-    <view class="section">
+    <view class="section date-time">
       <picker mode="date" value="{{end_date}}" start="2018-09-01" end="2030-09-01" bindchange="bindDateChange2">
         <view class="picker">
           <text class="bold">End Date:</text> {{end_date}}

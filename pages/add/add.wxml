@@ -1,10 +1,28 @@
 <!--pages/add/add.wxml-->
+<<<<<<< Updated upstream
 <view style="margin-bottom:26rpx"type="primary" loading="{{loading}}">
   <view class="add-avatar">
     <button class= "add-button" bindtap="pickImage"> Add a photo
       <image class= "camera" src="../images/camera.png"></image>
     </button>
   </view>
+=======
+<view style="margin-bottom:26rpx" type="primary" loading="{{loading}}">
+  <view wx:if = "{{photo}}">
+    <image style="background-image: url('{{photo}}'); background-size: cover; width: 375px; height: 190px" ></image>
+  </view>
+  <view wx:if = "{{photo.length < 1}}">
+    <view class="add-avatar">
+      <button class= "add-button" bindtap="pickImage"> Add a photo
+        <image class= "camera" src="../images/camera.png"></image>
+      </button>
+    </view>
+  </view>
+  <!-- <view wx:elif="{{photo.length >= 1}}"> -->
+  <!-- </view> -->
+    <!-- </view> -->
+  <!-- </view> -->
+>>>>>>> Stashed changes
 </view>
 
 <view class="form">

@@ -32,7 +32,12 @@ App({
   globalData: {
     userInfo: null,
     // apiHost: 'http://localhost:3000/api/v1'
+<<<<<<< Updated upstream
     // apiHost: 'https://kaizen-frontend.herokuapp.com/api/v1'
     apiHost: 'http://kaizen.wogengapp.cn/api/v1'
+=======
+    apiHost: 'https://kaizen-frontend.herokuapp.com/api/v1'
+    // apiHost: 'http://kaizen.wogengapp.cn/api/v1'
+>>>>>>> Stashed changes
   }
 })

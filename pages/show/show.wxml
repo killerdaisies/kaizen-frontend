@@ -72,7 +72,10 @@
     </view>
 
 
-    <view class="decision-container" wx:if="{{!hasBooked }}">
+
+    <view class="decision-container" wx:if="{{ !hasBooked && currentUserId != user.id}}">
+      <view class="decision-button">
+      
         <button class="accept-btn" bindtap="accept" type="primary" form-type="submit" loading="{{loading}}">
             Accept
         </button>

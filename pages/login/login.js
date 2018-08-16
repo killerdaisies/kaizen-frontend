@@ -24,7 +24,6 @@ Page({
     console.log(1,id)
 
     let user = {
-      "id": id,
       "wechat_name": nickName,
       "city": city,
       "avatar_url": avatarUrl

@@ -1,4 +1,5 @@
 // pages/list/list.js
+const app = getApp()
 Page({
 
   /**
@@ -12,16 +13,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options, 182774)
-    let page = this;
+let page = this;
+    let event_id = options.id;
+    let userInfo = app.globalData.userInfo
+    let currentUserId = app.globalData.userId
+    console.log(currentUserId)
+
+    page.setData({
+      currentUserId: currentUserId,
+      userInfo: userInfo,
+      event_id: event_id
+    });
+    console.log("hello", options)
+
     wx.request({
-      url:  'https://kaizen-frontend.herokuapp.com/api/v1/users',
+
+      url: app.globalData.apiHost + `/events/${options.id}`,
       method: 'GET',
       success(res) {
-        const users = res.data.users;
+        console.log(11, res.data)
+        const event = res.data;
+        page.setData(
+          event
+        );
+
         page.setData({
-          users: users
+          hasBooked: event.booked_users.map(u => u.id).includes(currentUserId)
         });
+
         wx.hideToast();
       }
     });

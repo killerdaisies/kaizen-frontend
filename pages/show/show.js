@@ -23,6 +23,7 @@ Page({
     let userInfo = app.globalData.userInfo
     let currentUserId = app.globalData.userId
     console.log(currentUserId)
+    console.log("event_id", event_id)
 
     page.setData({
       currentUserId: currentUserId,
@@ -89,7 +90,7 @@ Page({
 //     console.log("q", e.currentTarget.latitude)
 //     let address = e.currentTarget.dataset.address
 //     let latitude = e.currentTarget.dataset.latitude
-//     let longitude = e.currentTarget.dataset.longitude 
+//     let longitude = e.currentTarget.dataset.longitude
 //     wx.getLocation({
 //       type: 'gcj02', //Returns latitudes and longitudes that can be used for wx.openLocation
 //       success: function (res) {
@@ -107,10 +108,11 @@ Page({
   },
 
   viewParticipants: function (e) {
-    let participants = e.target.dataset.participants
+    const event_path = this.data.event_id
+    // console.log("data id", e)
     wx.navigateTo({
-      url: `../index/index?query=${category}`,
-    })
+      url: `../list/list?id=${event_path}`,
+    });
   },
   /**
    * 生命周期函数--监听页面加载
@@ -208,12 +210,6 @@ Page({
     // },
      wx.showShareMenu({
      withShareTicket: true
-    })
-  },
-
-  viewList: function () {
-    wx.navigateTo({
-      url: '/pages/list/list',
     })
   },
 

@@ -2,7 +2,7 @@
 <text>Guest List</text>
 
 <view class="page-container">
-  <view wx:for="{{users}}" wx:for-item="user" wx:key="user.id" data-event= "{{user}}" >
+  <view class='Kunta' wx:for="{{booked_users}}" wx:for-item="user" wx:key="user.id"     data-item= "{{user.id}}">
     <view class="card-title">
 
       <view class="name">
@@ -16,3 +16,5 @@
     </view>
   </view>
 </view>
+
+

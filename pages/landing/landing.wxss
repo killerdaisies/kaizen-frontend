@@ -14,21 +14,23 @@ background-size: cover;
   opacity:0.14;
   height:100%;
   width:120px;
-  background-color:black;
+  background-color:#343F5E;
   position:absolute;
   top:0;
   right:0;
 }
 
+
 button {
   border-radius: 50%;
-  height:70rpx;
-  width:70rpx;
+  height:80rpx;
+  width:80rpx;
   right:3%;
   top:17%;
   position: fixed;
   display: flex;
-  background-color: transparent;
+  background-color: #343F5E;
+  opacity: 0.7;
 }
 
 .top-section .title {

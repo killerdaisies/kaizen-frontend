@@ -26,10 +26,9 @@
 
 <view class="header"> Events 
 </view>
-
+<view wx:if = "{{events}}">
   <view wx:for="{{events}}" wx:for-item="event" wx:key="event.id"  data-event= "{{event}}" class="inner-card">
     <view class="card-title" bindtap="showItem" data-id="{{event.id}}">
-
       <view class="name">
         {{event.description}}
       </view>
@@ -43,9 +42,12 @@
         {{event.end}}
       </view>
     </view>
-  <hr/>
+    <hr/>
+  </view>
 </view>
-
+<view wx:if = "{{events.length < 1}}">
+  You can add some events here (click the button on the top right)
+</view>
 <button bindtap="addTap" style="background-image: url('../images/new-add.png'); background-size: cover;"> </button>
 
 

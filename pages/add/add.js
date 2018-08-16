@@ -1,5 +1,7 @@
 // pages/add/add.js
 const app = getApp()
+const AV = require('../../utils/av-weapp-min.js');
+
 Page({
   /**
    * 页面的初始数据
@@ -11,7 +13,8 @@ Page({
     endTime: '',
     latitude: '',
     longitude: '',
-    address:''
+    address:'',
+    photo:''
   },
 
   chooseLocation: function () {
@@ -91,11 +94,29 @@ Page({
   },
 
   pickImage: function () {
+    let page = this
     wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'], 
       success: function (res) {
-        console.log(res);
+        let tempFilePath = res.tempFilePaths[0]
+        page.uploadPromise(tempFilePath).then(res => {
+          console.log("you can execute anything here")
+          return res
+        }).then(res => {
+          console.log("or..")
+          return res
+        }).then(res => {
+          console.log(res)
+          page.setData({photo:res})
+        })
+        // page.setData({
+        //   imageUrl: res.tempFilePaths[0]
+        // })
       }
     })
+    console.log("pagedata",page.data)
   },
 
   uploadPromise: function (tempFilePath) {
@@ -128,6 +149,7 @@ Page({
     let id = app.globalData.userId;
     let latitude = this.data.latitude;
     let longitude = this.data.longitude;
+    let photo = this.data.photo;
     console.log("address",address)
     let event = {
       "event": {
@@ -140,14 +162,15 @@ Page({
         "end_date": endDate,
         "user_id": id,
         "latitude": latitude,
-        "longitude": longitude}
+        "longitude": longitude,
+        "photo": photo
+      }
     };
 
     console.log("event",event)
 
     let self = this;
     wx.request({
-
       url: app.globalData.apiHost + `/users/${id}/events`,
       method: 'POST',
       data: event,
@@ -177,7 +200,8 @@ Page({
       },
       success: function (res) {
         // set data on index page and show
-        console.log("hee");
+        console.log("hee", res.data.id);
+        app.globalData.bookingId = res.data.id
         // wx.navigateTo({
         //   url: '/pages/editshow/editshow?id=' + res.data.id
         // });

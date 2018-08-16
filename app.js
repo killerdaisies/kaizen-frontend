@@ -1,4 +1,13 @@
 //app.js
+const app = getApp()
+const AV = require('./utils/av-weapp-min.js')
+const config = require('./key')
+// Initialization of the app
+AV.init({
+  appId: config.appId,
+  appKey: config.appSecret,
+});
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -35,8 +44,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    apiHost: 'http://localhost:3000/api/v1'
-    // apiHost: 'https://kaizen-frontend.herokuapp.com/api/v1'
+    // apiHost: 'http://localhost:3000/api/v1'
+    apiHost: 'https://kaizen-frontend.herokuapp.com/api/v1'
     // apiHost: 'http://kaizen.wogengapp.cn/api/v1'
   }
 })

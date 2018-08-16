@@ -71,6 +71,16 @@
       </map>
     </view>
 
+
+    <view class="decision-container" wx:if="{{!hasBooked }}">
+        <button class="accept-btn" bindtap="accept" type="primary" form-type="submit" loading="{{loading}}">
+            Accept
+        </button>
+        <button class="reject-btn" bindtap="reject" style="margin-top:55rpx; padding-bottom:1rpx; width:49.5%" type="warn" form-type="submit" loading="{{loading}}">
+          Reject
+        </button>
+    </view>
+
     <view class ="invite-button">
       <view>
         <button class="share-btn" open-type="share" type="warning">
@@ -79,16 +89,6 @@
       </view>
     </view>
 
-    <view wx:if="{{ !hasBooked }}">
-      <view class="decision-button">
-        <button class="accept-btn" bindtap="accept" type="primary" form-type="submit" loading="{{loading}}">
-            Accept
-        </button>
-        <button  bindtap="reject" style="margin-top:55rpx; padding-bottom:1rpx; width:49.5%" type="warn" form-type="submit" loading="{{loading}}">
-          Reject
-        </button>
-      </view>
-    </view>
   </view>
 </view>
 

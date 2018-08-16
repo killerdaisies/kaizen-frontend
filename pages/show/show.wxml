@@ -21,7 +21,8 @@
         <image class="avatar" src="{{user.avatar_url}}"></image>
       </view>
     </view>
-  </view> 
+  </view>
+
   <view class="page-container">
     <view class="top-section">
 
@@ -40,13 +41,12 @@
     </view>
   </view>
 
-
   <view class="page-container">
     <view class="card-title">
       <view class="icon-container" wx:if="{{currentUserId == user.id}}">
 
         <button class= "edit-button icon-button" bindtap="editEvent" data-id="{{id}}" style="background-image: url(../images/edit-icon.png);">
-    
+
         </button>
 
         <button class= "delete-button icon-button" bindtap="deleteEvent" data-id="{{id}}" style="background-image: url(../images/trashcan.png);">

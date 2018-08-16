@@ -16,9 +16,9 @@
 <view class="form">
 <!-- <template name="form" data="{{data}}"> -->
   <form bindsubmit="bindSubmit">
-  <view class="title-location">
+    <view class="title-location">
       <view class="section">
-      <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Title'/>
+        <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Title'/>
       </view>
 
       <!-- <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/> -->
@@ -26,9 +26,10 @@
         Location
       </button>
     </view>
-  </view>
+  </form>
+</view>
 
-  <view class="form">
+<view class="form">
   <!-- <template name="form" data="{{data}}"> -->
     <form bindsubmit="bindSubmit">
     <view class="box-group">
@@ -83,6 +84,5 @@
     </form>
 
   <!-- <template is="form"/> -->
-  </view>
 </view>
 

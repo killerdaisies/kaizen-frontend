@@ -22,13 +22,14 @@ background-size: cover;
 
 button {
   border-radius: 50%;
-  height:70rpx;
-  width:70rpx;
+  height:80rpx;
+  width:80rpx;
   right:3%;
   top:17%;
   position: fixed;
   display: flex;
-  background-color: transparent;
+  background-color: #1E537F;
+  opacity: 0.7;
 }
 
 .top-section .title {

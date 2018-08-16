@@ -71,7 +71,6 @@ background-size: cover;
 
 .inner-card{
 background-color: white;
-padding: 0;
 }
 
 .card-title{

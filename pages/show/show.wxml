@@ -13,7 +13,7 @@
       </view>
     </view>
     <image class="avatar" src="{{user.avatar_url}}"></image>
-  <!-- </view> -->
+  </view>
 </view>
 
 
@@ -41,7 +41,7 @@
         <!-- <text>07/08/2018 Tuesday 2:30-5:30pm</text> -->
     </view>
 
-    <view class="address item-flex">
+    <view class="address item-flex" bindtap="navigateTo" data-id="{{id}}" data-address="{{address}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}">
     <image class="icon" src="../images/location.png"></image>
         {{address}}
         <!-- <text>WeWork Nanjing West Road 3F </text> -->
@@ -81,5 +81,4 @@
       </button>
     </view>
   </view>
-  </view>
-
+</view>

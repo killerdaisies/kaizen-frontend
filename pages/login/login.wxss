@@ -29,6 +29,17 @@
 
 .intro {
   color: grey;
-  top: -10%;
-  position: relative;
+  top: 35%;
+  left: 10%;
+  position: absolute;
+}
+
+.add {
+  height: 70rpx;
+  width: 70rpx;
+  right: 10%;
+  top: 34.5%;
+  position: absolute;
+  background-color: #1E537F;
+  border-radius: 50%;
 }

@@ -9,8 +9,9 @@
     </block>
   </view>
   <view class="intro">
-    Create an event by pressing the + button
+    Create an event by pressing
   </view>
+    <image class="add" src="../images/new-add.png"> </image>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
     <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" >Get Started </button>

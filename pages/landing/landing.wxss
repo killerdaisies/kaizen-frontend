@@ -14,11 +14,12 @@ background-size: cover;
   opacity:0.14;
   height:100%;
   width:120px;
-  background-color:black;
+  background-color:#343F5E;
   position:absolute;
   top:0;
   right:0;
 }
+
 
 button {
   border-radius: 50%;
@@ -28,7 +29,7 @@ button {
   top:17%;
   position: fixed;
   display: flex;
-  background-color: #1E537F;
+  background-color: #343F5E;
   opacity: 0.7;
 }
 

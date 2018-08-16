@@ -23,6 +23,10 @@ Page({
       url: app.globalData.apiHost + `/users/${app.globalData.userId}/events`,
       method: 'GET',
       success(res) {
+<<<<<<< Updated upstream
+=======
+        console.log(res.data.booked_events)
+>>>>>>> Stashed changes
         const events = res.data.booked_events;
         page.setData({
           events: events

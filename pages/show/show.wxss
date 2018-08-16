@@ -12,8 +12,7 @@
   background-color: #29527D;
   height: 21.5vh;
   filter: drop-shadow(8rpx 0 8rpx rgba(0,0,0,0.25));
-  display: flex;
-  align-items: center;
+  display:relative;
 }
 
 .card-title .name{
@@ -62,41 +61,22 @@
   background-color: white;
 }
 
-/* .card-mainInfo {
- position: relative;
-  top: 106rpx;
-  font-size: 17px;
-  padding-left: 110rpx;
-  padding-top: 30rpx;
-  border: 1px solid black;
-} */
-
-/* .page-container{
-  border: 1px solid red;
-  width: 100%;
-  margin-top: 20rpx;
-  display: flex;
-  flex-direction: column;
-  background-color:#F9F7F7;
-} */
 
 .image-container{
   width: 100%;
-  height: 20%;
+  height: 21.5vh;
   top: 0%;
   position: absolute;
-  /* border: solid grey; */
-
+  background-position:center;
+  display:flex;
+  justify-content: flex-start;
+  align-items:flex-end;
 }
 
 .avatar-status{
   font-size:13px;
   color:white;
   font-family:sans-serif;
-  /* position: absolute;
-  left: 186rpx;
-  top: 51%; */
-  /* border: 1px red solid; */
 }
 
 .avatar{
@@ -104,17 +84,23 @@
   height: 60px;
   width: 60px;
   border: 0.1px solid grey;
-  /* bottom: 15%;
-  left: 6%;
-  position: absolute; */
+  margin-left:14px;
+  margin-bottom: 10px;
+}
+.avatar-details{
+  margin-left:13px;
+  margin-bottom:10px;
 }
 
-
 .avatar-mini{
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  border: solid grey;
+  border-radius:50%;
+  height:25px;
+  width:25px;
+  background-size:cover;
+  border:1px solid grey;
+  background-position:center;
+  background:fill;
+  margin-left:5px;
 }
 
 .avatar-name{
@@ -159,6 +145,7 @@
   background-color: white;
   width: 100%;
   padding: 18rpx;
+  display:flex;
 }
 
 .list-button :hover{

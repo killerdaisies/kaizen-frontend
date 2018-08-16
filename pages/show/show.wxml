@@ -2,40 +2,20 @@
 
 
 <view wx:if="{{userInfo}}">
-  <view class="page-container">
-    <view class="top-section">
-
-      <view class="image-container" style="background-image: url('{{photo}}');background-size: cover;">
-          <view class="avatar-details">
-            <view class="avatar-name">
-              {{user.wechat_name}}
-            </view>
-            <view class="avatar-status">
-              <text>Host</text>
-            </view>
-
-          </view>
-        <image class="avatar" src="{{user.avatar_url}}"></image>
-      </view>
-    </view>
-  </view>
-
-  <!-- <view class="page-container">
     <view class="top-section">
       <view class="image-container" style="background-image: url('{{photo}}');background-size: cover;">
-        <view class="avatar-details">
-          <view class="avatar-name">
-            {{user.wechat_name}}
-          </view>
-          <view class="avatar-status">
-            <text>Host</text>
-          </view>
+      <image class="avatar" src="{{user.avatar_url}}"></image>
+      <view class="avatar-details">
+        <view class="avatar-status">
+        Host
         </view>
-        <image class="avatar" src="{{user.avatar_url}}"></image>
+        <view class="avatar-name">
+        {{user.wechat_name}}
+        </view>
+      </view>      
       </view>
     </view>
-  </view> -->
-
+    
   <view class="page-container">
     <view class="card-title">
       <view class="icon-container" wx:if="{{currentUserId == user.id}}">
@@ -74,7 +54,7 @@
 
     <view class ="list">
       <button class= "list-button" bindtap="viewParticipants">
-        <view class='avatar-mini' wx:for="{{booked_users}}" wx:for-item="user" wx:key="user.id"     data-item= "{{user.id}}"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{user.avatar_url}}')"></view>
+        <view class='avatar-mini' wx:for="{{booked_users}}" wx:for-item="user" wx:key="user.id"     data-item= "{{user.id}}"style="background-image: url({{user.avatar_url}})"></view>
           <!-- <image class= "avatar-mini" src="../images/camera.png"></image> -->
       </button>
     </view>

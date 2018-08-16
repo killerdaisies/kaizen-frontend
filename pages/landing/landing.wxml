@@ -46,6 +46,6 @@
   <hr/>
 </view>
 
-<button bindtap="addTap" style="background-image: url('../images/add.png'); background-size: cover;"> </button>
+<button bindtap="addTap" style="background-image: url('../images/new-add.png'); background-size: cover;"> </button>
 
 

@@ -17,14 +17,16 @@ Page({
   },
 
   onLoad: function (options) {
+
+    let page = this;
+    let event_id = options.id;
+    let userInfo = app.globalData.userInfo
     let currentUserId = app.globalData.userId
     console.log(currentUserId)
-    let page = this;
-    let event_id = options.event_id;
-    let user = app.globalData.userInfo
+
     page.setData({
       currentUserId: currentUserId,
-      user: user,
+      userInfo: userInfo,
       event_id: event_id
     });
     console.log("hello", options)
@@ -39,6 +41,11 @@ Page({
         page.setData(
           event
         );
+
+        page.setData({
+          hasBooked: event.booked_users.map(u => u.id).includes(currentUserId)
+        });
+
         wx.hideToast();
       }
     });
@@ -49,17 +56,17 @@ Page({
 
 
   getUserInfo: function (e) {
+    let page = this
 
     let id = app.globalData.userId
 
-    let user = e.detail.userInfo
-    user.id = id
+    let userInfo = e.detail.userInfo
 
-    this.setData(user);
-    app.globalData.userInfo = user
+    this.setData(userInfo);
+    app.globalData.userInfo = userInfo
 
-    const nickName = app.globalData.userInfo.nickName;
-    const avatarUrl = app.globalData.userInfo.avatarUrl;
+    const nickName = userInfo.nickName;
+    const avatarUrl = userInfo.avatarUrl;
 
     wx.request({
       url: app.globalData.apiHost + `\/users\/${id}`,
@@ -70,10 +77,9 @@ Page({
         avatar_url: avatarUrl
       },
       success: (res) => {
-        app.globalData.userId = res.data.id
-        wx.reLaunch({
-          url: '/pages/invited/invited',
-        });
+        wx.redirectTo({
+          url: '/pages/show/show?id=' + page.data.event_id,
+        })
       }
     });
 
@@ -148,7 +154,7 @@ Page({
     console.log(1, id)
 
     let booking = {
-      "id": id,
+      "user_id": id,
       "event_id": event_id
     }
 
@@ -156,16 +162,30 @@ Page({
     console.log(11, app.globalData.userInfo)
 
     wx.request({
-      url: app.globalData.apiHost + `/users/${id}/bookings`,
+      url: app.globalData.apiHost + `/bookings`,
       method: 'POST',
       data: booking,
       success(res) {
         console.log(res);
         // wx.reLaunch({
-        //   url: '/pages/landing/landing',
+        //   url: '../landing/landing',
         // });
       }
     });
+
+    let attendees = []
+    attendees.push(id)
+    wx.request({
+      url: app.globalData.apiHost + `/events/${event_id}`,
+      method: 'PUT',
+      data: {attendee: attendees},
+      success(res) {
+        console.log(res);
+        wx.reLaunch({
+          url: '../landing/landing',
+        });
+      }
+    })
   },
 
   reject: function () {
@@ -175,7 +195,7 @@ Page({
       duration: 3000
     });
     wx.reLaunch({
-      url: 'pages/landing/landing',
+      url: '../landing/landing',
     })
   },
 

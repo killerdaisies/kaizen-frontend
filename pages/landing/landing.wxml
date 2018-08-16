@@ -30,8 +30,9 @@
 <view class="header"> Events 
 </view>
 
-<view wx:for="{{events}}" wx:for-item="event" wx:key="event.id" bindtap="showItem" data-event= "{{event}}" class="inner-card">
-    <view class="card-title">
+  <view wx:for="{{events}}" wx:for-item="event" wx:key="event.id"  data-event= "{{event}}" class="inner-card">
+    <view class="card-title" bindtap="showItem" data-id="{{event.id}}">
+
       <view class="name">
         {{event.description}}
       </view>

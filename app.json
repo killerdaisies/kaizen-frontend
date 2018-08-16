@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/logs/logs",
     "pages/login/login",
-    "pages/add/add",
     "pages/landing/landing",
+    "pages/add/add",
     "pages/show/show",
     "pages/list/list",
     "pages/map/map",

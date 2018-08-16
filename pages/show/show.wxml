@@ -1,8 +1,9 @@
 <!--show.wxml-->
 
-<view wx:if="{{user}}">
+<view wx:if="{{userInfo}}">
   <view class="page-container">
     <view class="top-section">
+
 
       <!-- <view class="background" style='background-image:  linear-gradient(to bottom,  rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(https://cdn.cnn.com/cnnnext/dam/assets/180806212336-03-ohio-troy-balderson-exlarge-tease.jpg);'/> -->
 
@@ -59,7 +60,7 @@
 
     <view class ="list">
       <button class= "list-button" bindtap="viewParticipants">
-        <view class='avatar-mini' wx:for-item="avatar" wx:key="avatar.id"     data-item= "{{user.avatar_url}}"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{user.avatar_url}}')"></view>
+        <view class='avatar-mini' wx:for="{{booked_users}}" wx:for-item="user" wx:key="user.id"     data-item= "{{user.id}}"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{user.avatar_url}}')"></view>
         <!-- <image class= "avatar-mini" src="../images/camera.png"></image> -->
       </button>
     </view>
@@ -84,7 +85,7 @@
       </view>
     </view>
 
-    <view wx:if="{{currentUserId != user.id}}">
+    <view wx:if="{{ !hasBooked }}">
       <view class="decision-button">
           <button class="accept-btn" bindtap="accept" type="primary" form-type="submit" loading="{{loading}}">
             Accept
@@ -99,7 +100,7 @@
 <view wx:else>
   <view class="login-container">
         <view class="userinfo">
-          <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+          <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
           <block :else>
             <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
             <text class="userinfo-nickname">{{userInfo.nickName}}</text>

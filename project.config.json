@@ -33,13 +33,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "Login",
 					"pathName": "pages/login/login",
-					"query": "event.id=4"
+					"query": ""
 				},
 				{
 					"id": -1,

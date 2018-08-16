@@ -29,9 +29,9 @@
 
 .intro {
   color: grey;
-  top: 35%;
-  left: 10%;
+  top: 38%;
   position: absolute;
+
 }
 
 .add {

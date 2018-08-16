@@ -82,8 +82,8 @@
         <button class="reject-btn" bindtap="reject" style="margin-top:55rpx; padding-bottom:1rpx; width:49.5%" type="warn" form-type="submit" loading="{{loading}}">
           Reject
         </button>
+      </view>
     </view>
-
     <view class ="invite-button">
       <view>
         <button class="share-btn" open-type="share" type="warning">
@@ -91,7 +91,6 @@
         </button>
       </view>
     </view>
-
   </view>
 </view>
 

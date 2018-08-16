@@ -179,7 +179,11 @@
   margin-left:-80rpx;
   padding-right:33rpx;
 }
-
+.decision-button{
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+}
 
 page{
   background-color: #F7FCFF;

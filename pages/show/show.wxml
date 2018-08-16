@@ -1,26 +1,29 @@
 <!--show.wxml-->
-<view class="page-container">
-<view class="top-section">
 
-  <!-- <view class="background" style='background-image:  linear-gradient(to bottom,  rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(https://cdn.cnn.com/cnnnext/dam/assets/180806212336-03-ohio-troy-balderson-exlarge-tease.jpg);'/> -->
-  <view class="image-container" style="background-image: url('{{photo}}');background-size: cover;">
-    <view class="avatar-details">
-      <view class="avatar-name">
-        {{user.wechat_name}}
+<view wx:if="{{user}}">
+  <view class="page-container">
+    <view class="top-section">
+
+      <!-- <view class="background" style='background-image:  linear-gradient(to bottom,  rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(https://cdn.cnn.com/cnnnext/dam/assets/180806212336-03-ohio-troy-balderson-exlarge-tease.jpg);'/> -->
+
+      <view class="image-container" style="background-image: url('{{photo}}');background-size: cover;">
+        <view class="avatar-details">
+          <view class="avatar-name">
+            {{user.wechat_name}}
+          </view>
+          <view class="avatar-status">
+            <text>Host</text>
+          </view>
+
       </view>
-      <view class="avatar-status">
-        <text>Host</text>
-      </view>
+      <image class="avatar" src="{{user.avatar_url}}"></image>
     </view>
-    <image class="avatar" src="{{user.avatar_url}}"></image>
   </view>
-</view>
-
 
 
 <view class="page-container">
   <view class="card-title">
-    <view class="icon-container" wx:if="{{user.id}}">
+  <view class="icon-container" wx:if="{{currentUserId == user.id}}">
 
       <button class= "edit-button icon-button" bindtap="editEvent" data-id="{{id}}" style="background-image: url(../images/edit-icon.png);">
   
@@ -29,9 +32,9 @@
       <button class= "delete-button icon-button" bindtap="deleteEvent" data-id="{{id}}" style="background-image: url(../images/trashcan.png);">
       </button>
 
-    </view>
+  </view>
 
-    <view class="name">
+<view class="name">
         {{description}}
     </view>
 
@@ -52,33 +55,62 @@
          {{end}}
     </view>
   </view>
-</view>
 
 
-  <view class ="list">
-    <button class= "list-button" bindtap="viewParticipants">
-      <view class='avatar-mini' wx:for-item="avatar" wx:key="avatar.id"     data-item= "{{user.avatar_url}}"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{user.avatar_url}}')"></view>
-      <!-- <image class= "avatar-mini" src="../images/camera.png"></image> -->
-    </button>
-  </view>
-
-  <view class ="map">
-   <map
-      id="myMap"
-      style="width: 100%; height: 400rpx;"
-      latitude= "{{latitude}}"
-      longitude= "{{longitude}}"
-      markers="{{markers}}"
-      covers="{{covers}}"
-      show-location>
-    </map>
-  </view>
-
-  <view class ="invite-button">
-    <view>
-      <button class="share-btn" open-type="share" type="warning">
-        Send Invite
+    <view class ="list">
+      <button class= "list-button" bindtap="viewParticipants">
+        <view class='avatar-mini' wx:for-item="avatar" wx:key="avatar.id"     data-item= "{{user.avatar_url}}"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{user.avatar_url}}')"></view>
+        <!-- <image class= "avatar-mini" src="../images/camera.png"></image> -->
       </button>
     </view>
-  </view>
+
+    <view class ="map">
+     <map
+        id="myMap"
+        style="width: 100%; height: 400rpx;"
+        latitude= "{{latitude}}"
+        longitude= "{{longitude}}"
+        markers="{{markers}}"
+        covers="{{covers}}"
+        show-location>
+      </map>
+    </view>
+
+    <view class ="invite-button">
+      <view>
+        <button class="share-btn" open-type="share" type="warning">
+          Send Invite
+        </button>
+      </view>
+    </view>
+
+    <view wx:if="{{currentUserId != user.id}}">
+      <view class="decision-button">
+          <button class="accept-btn" bindtap="accept" type="primary" form-type="submit" loading="{{loading}}">
+            Accept
+          </button>
+          <button  bindtap="reject" style="margin-top:55rpx; padding-bottom:1rpx; width:49.5%" type="warn" form-type="submit" loading="{{loading}}">
+            Reject
+          </button>
+      </view>
+    </view>
 </view>
+
+<view wx:else>
+  <view class="login-container">
+        <view class="userinfo">
+          <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+          <block :else>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          </block>
+        </view>
+        <view class="usermotto">
+          <text class="user-motto">{{motto}}</text>
+          <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" >Login</button>
+        </view>
+</view>
+</view>
+
+
+

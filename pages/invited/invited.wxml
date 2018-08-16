@@ -2,7 +2,7 @@
 <!-- If wechat -->
 
 
-<view wx:if="{{user.id}}">
+<view wx:if="{{user}}">
   <view class="page">
     <view class="top-section">
       <view class="background" style='background-image:  linear-gradient(to bottom,  rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(https://cdn.cnn.com/cnnnext/dam/assets/180806212336-03-ohio-troy-balderson-exlarge-tease.jpg);'/>

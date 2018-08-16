@@ -1,8 +1,29 @@
 <!--pages/add/add.wxml-->
-<view class="add-page-container">
-  <view type="primary" loading="{{loading}}">
+
+<view style="margin-bottom:26rpx" type="primary" loading="{{loading}}">
+  <view wx:if = "{{photo}}">
+    <image style="background-image: url('{{photo}}'); background-size: cover; width: 375px; height: 190px" ></image>
+  </view>
+  <view wx:if = "{{photo.length < 1}}">
     <view class="add-avatar">
-      <button class= "add-button" bindtap="pickImage" style="background-image: url(../images/whitecamera.png);">
+      <button class= "add-button" bindtap="pickImage"> Add a photo
+        <image class= "camera" src="../images/camera.png"></image>
+      </button>
+    </view>
+  </view>
+</view>
+
+<view class="form">
+<!-- <template name="form" data="{{data}}"> -->
+  <form bindsubmit="bindSubmit">
+  <view class="title-location">
+      <view class="section">
+      <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Title'/>
+      </view>
+
+      <!-- <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/> -->
+      <button class="btn-location" bindtap="chooseLocation">
+        Location
       </button>
     </view>
   </view>

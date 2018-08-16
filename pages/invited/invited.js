@@ -1,7 +1,7 @@
 // pages/invited/invited.js
 const app = getApp();
 Page({
-  
+
   /**
    * 页面的初始数据
    */
@@ -36,21 +36,19 @@ Page({
     this.setData(user);
     app.globalData.userInfo = user
 
-    var nickName = app.globalData.userInfo.nickName;
-    var avatarUrl = app.globalData.userInfo.avatarUrl;
-    var city = app.globalData.userInfo.province;
+    const nickName = app.globalData.userInfo.nickName;
+    const avatarUrl = app.globalData.userInfo.avatarUrl;
 
     wx.request({
       url: app.globalData.apiHost + `\/users\/${id}`,
       method: 'PUT',
       data: {
-        id: id, 
-        wechat_name: nickName, 
-        avatar_url: avatarUrl,
-        city: city
+        id: id,
+        wechat_name: nickName,
+        avatar_url: avatarUrl
       },
       success: (res) => {
-        app.globalData.userId = res.data.userId
+        app.globalData.userId = res.data.id
         wx.reLaunch({
           url: '/pages/invited/invited',
         });
@@ -64,11 +62,30 @@ Page({
   onLoad: function (options) {
     console.log(options, 182774)
     let page = this;
+    let event_id = options.event_id;
     let user = app.globalData.userInfo
     console.log(88,user)
     this.setData({
-      user: user
+      user: user,
+      event_id: event_id
     });
+
+    // new request to take id
+    wx.request({
+
+      url: app.globalData.apiHost + `/events/${options.id}`,
+      method: 'GET',
+      success(res) {
+        console.log(11, res.data)
+        const event = res.data;
+        page.setData(
+          event
+        );
+        wx.hideToast();
+      }
+    });
+
+    console.log("event",event_id)
 
     // wx.request({
     //   url: app.globalData.apiHost + `/events`,
@@ -91,46 +108,40 @@ Page({
     // console.log(12, options.query)
     // this.setData(app.globalData)
   },
-  
+
   onShareAppMessage: function () {
     console.log('share')
-    return {
-      title: 'Event Invite',
-      path: `/pages/invited/invited?id=${event.id}`,
-    }
   },
 
   accept: function(e) {
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo
-    });
-
-    const nickName = app.globalData.userInfo.nickName;
-    const avatarUrl = app.globalData.userInfo.avatarUrl;
-    const city = e.detail.userInfo.province;
-    const id = app.globalData.userId;
+    // app.globalData.userInfo = e.detail.userInfo
+    // this.setData({
+    //   userInfo: app.globalData.userInfo
+    // });
+    let page = this;
+    let id = app.globalData.userId;
+    const users = app.globalData.users;
+    let event_id = this.data.event_id
 
     console.log(1, id)
 
-    let user = {
+    let booking = {
       "id": id,
-      "wechat_name": nickName,
-      "city": city,
-      "avatar_url": avatarUrl
+      "event_id": event_id
     }
 
-    const users = app.globalData.users
+    console.log("word", booking)
     console.log(11, app.globalData.userInfo)
+
     wx.request({
-      url: app.globalData.apiHost + `/users/${user.id}/bookings`,
+      url: app.globalData.apiHost + `/users/${id}/bookings`,
       method: 'POST',
-      data: user,
-      success() {
-        console.log("he");
-        wx.reLaunch({
-          url: '/pages/landing/landing',
-        });
+      data: booking,
+      success(res) {
+        console.log(res);
+        // wx.reLaunch({
+        //   url: '/pages/landing/landing',
+        // });
       }
     });
   },

@@ -1,10 +1,5 @@
 <!--pages/add/add.wxml-->
-<!-- <view style="margin-bottom:26rpx"type="primary" loading="{{loading}}">
-  <view class="add-avatar">
-    <button class= "add-button" bindtap="pickImage"> Add a photo
-      <image class= "camera" src="../images/camera.png"></image>
-    </button>
-  </view> -->
+
 <view style="margin-bottom:26rpx" type="primary" loading="{{loading}}">
   <view wx:if = "{{photo}}">
     <image style="background-image: url('{{photo}}'); background-size: cover; width: 375px; height: 190px" ></image>
@@ -16,10 +11,6 @@
       </button>
     </view>
   </view>
-  <!-- <view wx:elif="{{photo.length >= 1}}"> -->
-  <!-- </view> -->
-    <!-- </view> -->
-  <!-- </view> -->
 </view>
 
 <view class="form">
@@ -34,48 +25,64 @@
       <button class="btn-location" bindtap="chooseLocation">
         Location
       </button>
+    </view>
   </view>
 
-  <view class="start-end-type">
-  <view class="section">
-      <picker mode="date" value="{{startDate}}" start="2018-08-13" end="2030-09-01" bindchange="bindDateChange1">
-        <view class="picker">
-          <text class="bold">Start Date:</text> {{startDate}}
+  <view class="form">
+  <!-- <template name="form" data="{{data}}"> -->
+    <form bindsubmit="bindSubmit">
+    <view class="box-group">
+        <view class="section">
+        <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Title'/>
         </view>
-      </picker>
-      <view class="time">
-          <picker mode="time" value="{{startTime}}" start="00:00" end="23:59" bindchange="bindTimeChange1">
+
+        <!-- <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/> -->
+        <button class="btn-location" bindtap="chooseLocation">
+          Location: {{address}}
+        </button>
+    </view>
+
+    <view class="box-group">
+    <view class="section date-time">
+        <picker mode="date" value="{{startDate}}" start="2018-08-13" end="2030-09-01" bindchange="bindDateChange1">
           <view class="picker">
-           <text class="bold">Time:</text> {{startTime}}
+            <text class="bold">Start Date:</text> {{startDate}}
           </view>
         </picker>
-      </view>
-    </view>
-
-    <view class="section">
-
-      <picker mode="date" value="{{endDate}}" start="2018-08-01" end="2030-09-01" bindchange="bindDateChange2">
-        <view class="picker">
-          <text class="bold">End Date:</text> {{endDate}}
+        <view class="time">
+            <picker mode="time" value="{{startTime}}" start="00:00" end="23:59" bindchange="bindTimeChange1">
+            <view class="picker">
+            <text class="bold">Time:</text> {{startTime}}
+            </view>
+          </picker>
         </view>
-      </picker>
-      <view class="time">
-          <picker mode="time" value="{{endTime}}" start="00:00" end="23:59" bindchange="bindTimeChange2">
+      </view>
+
+      <view class="section date-time">
+
+        <picker mode="date" value="{{endDate}}" start="2018-08-01" end="2030-09-01" bindchange="bindDateChange2">
           <view class="picker">
-            <text class="bold">Time:</text> {{endTime}}
+            <text class="bold">End Date:</text> {{endDate}}
           </view>
         </picker>
+        <view class="time">
+            <picker mode="time" value="{{endTime}}" start="00:00" end="23:59" bindchange="bindTimeChange2">
+            <view class="picker">
+              <text class="bold">Time:</text> {{endTime}}
+            </view>
+          </picker>
+        </view>
       </view>
-    </view>
 
-    <view class="section">
-      <textarea value="{{capacity}}" style="input-size" class="input-height" name="capacity" maxlength="-1" auto-height placeholder="Capacity"/>
-    </view>
+      <view class="section">
+        <textarea value="{{capacity}}" style="input-size" class="input-height" name="capacity" maxlength="-1" auto-height placeholder="Capacity"/>
+      </view>
 
-    <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}">Save</button>
+      <button class="btn-save" type="warning" form-type="submit" loading="{{loading}}">Save</button>
+    </view>
+    </form>
+
+  <!-- <template is="form"/> -->
   </view>
-  </form>
-
-<!-- <template is="form"/> -->
 </view>
 

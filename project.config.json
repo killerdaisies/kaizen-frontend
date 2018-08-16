@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.2.1",
 	"appid": "wx9968daef69f96fb4",
-	"projectname": "Kaizen",
+	"projectname": "Kaizen%20New",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -33,13 +33,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 3,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "Login",
 					"pathName": "pages/login/login",
-					"query": ""
+					"query": "event.id=4"
 				},
 				{
 					"id": -1,
@@ -54,10 +54,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "Show",
 					"pathName": "pages/show/show",
-					"query": ""
+					"query": "id=1"
 				},
 				{
 					"id": 4,
@@ -66,10 +66,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "Invited",
 					"pathName": "pages/invited/invited",
-					"query": ""
+					"query": "event_id=4"
 				},
 				{
 					"id": -1,

@@ -4,11 +4,16 @@
   width: 100%;
   height: 36%; */
   background: #FFFFFF;
+  color: #343F5E;
 }
 
 .top-section {
-    background: linear-gradient(68deg, rgba(45,157,121,0.9654236694677871) 0%, rgba(36,139,158,0.9458158263305322) 76%, rgba(34,134,179,0.9542191876750701) 100%);
-  height: 150px;
+  /* background: linear-gradient(68deg, rgba(45,157,121,0.9654236694677871) 0%, rgba(36,139,158,0.9458158263305322) 76%, rgba(34,134,179,0.9542191876750701) 100%); */
+  background-color: #29527D;
+  height: 21.5vh;
+  filter: drop-shadow(8rpx 0 8rpx rgba(0,0,0,0.25));
+  display: flex;
+  align-items: center;
 }
 
 .card-title .name{
@@ -32,14 +37,12 @@
   top: 42px;
   width: 100%;
   font-size: 17px;
-  border-bottom: 1px solid lightgrey;
   padding-left: 110rpx;
-  padding-bottom: 10rpx;
+  padding-bottom: 15rpx;
 
 }
 
 .card-title .address{
-  border-bottom: 1px solid lightgrey;
   position: relative;
   top: 106rpx;
   font-size: 17px;
@@ -56,7 +59,6 @@
   padding-left: 110rpx;
   padding-top: 20rpx;
   padding-bottom: 15rpx;
-  border-bottom: 1px solid lightgrey;
   background-color: white;
 }
 
@@ -91,9 +93,9 @@
   font-size:13px;
   color:white;
   font-family:sans-serif;
-  position: absolute;
+  /* position: absolute;
   left: 186rpx;
-  top: 51%;
+  top: 51%; */
   /* border: 1px red solid; */
 }
 
@@ -102,9 +104,9 @@
   height: 60px;
   width: 60px;
   border: 0.1px solid grey;
-  bottom: 15%;
+  /* bottom: 15%;
   left: 6%;
-  position: absolute;
+  position: absolute; */
 }
 
 
@@ -116,14 +118,9 @@
 }
 
 .avatar-name{
-  /* border: 1px solid grey; */
-  /* height: 40px; */
-  left: 183rpx;
-  top: 61%;
   font-size: 19px;
   color: white;
   font-weight: 450;
-  position: absolute;
 }
 
 .list{
@@ -151,8 +148,9 @@
 }
 
 .share-btn{
-  background: linear-gradient(68deg, rgba(45,157,121,0.9654236694677871) 0%, rgba(36,139,158,0.9458158263305322) 76%, rgba(34,134,179,0.9542191876750701) 100%);
+  background-color: #4496C4;
   color: white;
+  border-radius: 0;
   /* margin-top: 52rpx;
   position: relative; */
 }
@@ -181,8 +179,35 @@
   margin-left:-80rpx;
   padding-right:33rpx;
 }
-
+.decision-button{
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+}
 
 page{
-  background-color: #F9F7F7;
+  background-color: #F7FCFF;
+}
+
+.item-flex{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.icon-button{
+  background-size: contain;
+  height: 46rpx;
+  width: 45rpx;
+  background-position: center;
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+
+.icon-container{
+  display:flex;
+  width:15%;
+  position:absolute;
+  right: 5%;
+  bottom:70%;
 }

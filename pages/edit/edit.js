@@ -135,18 +135,18 @@ Page({
     let longitude = this.data.longitude;
     let event_id = this.data.id;
 
-    let event = {
+    let event = { event: {
       "description": description,
       "address": address,
       "capacity": capacity,
-      "start_time": start_time ,
+      "start_time": start_time,
       "end_time": end_time,
       "start_date": start_date,
       "end_date": end_date,
       "user_id": id,
       "latitude": latitude,
       "longitude": longitude,
-      "event_id": event_id
+      }
     };
 
     console.log("event",event)
@@ -157,11 +157,8 @@ Page({
       method: 'PUT',
       data: event,
       success: function(res) {
-        // set data on index page and show
         console.log("he", res);
-        // self.joinEventUponCreation(res.data.id)
         wx.navigateTo({
-          // url: '/pages/editshow/editshow?id=' + res.data.id
           url: '/pages/landing/landing'
         });
       }

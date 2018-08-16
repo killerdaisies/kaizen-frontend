@@ -11,30 +11,43 @@
   </button>
 </view> -->
 
-<view class="page-container">
-  <!-- <view class="top-section" style=" background-image: url(../images/avatarmountain.jpg), linear-gradient( 68.8deg,  rgba(119,202,189,0.5) 17.9%, rgba(0,0,0,1) 93.1% );">
-   <view class="title">
-   Your Events
-   </view>
-  </view> -->
-
-  <view wx:for="{{events}}" wx:for-item="event" wx:key="event.id" bindtap="showItem" data-event= "{{event}}" class="inner-card">
-
-    <view class="card-title">
-      <view class="name">
-          {{event.description}}
+<view class="top-section-container"> 
+    <view class="top-section" style="background-image: url(../images/kaizenlandingbackground.jpg), linear-gradient( 68.8deg,  rgba(119,202,189,0.5) 17.9%, rgba(0,0,0,1) 93.1% );">
+      <view class="title">
+        Kaizen 
       </view>
-      <view class="card-mainInfo">
-        <view class="time">
-          {{event.start}} - {{event.end}}
-        </view>
+      <view class="calender-title">
+        Your personal calendar 
+      </view>
+      <view class="transparent-container">
+        <button bindtap="addTap" class="button-container">
+          <image class="add-button" src="../images/add.png" mode="scaleToFill"></image>
+        </button>
       </view>
     </view>
-  </view>
 </view>
 
-<button bindtap="addTap" class="button-container">
-    <image class="add-button" src="../images/add.png" mode="scaleToFill"></image>
-</button>
+<view class="header"> Events 
+</view>
+
+  <view wx:for="{{events}}" wx:for-item="event" wx:key="event.id"  data-event= "{{event}}" class="inner-card">
+    <view class="card-title" bindtap="showItem" data-id="{{event.id}}">
+
+      <view class="name">
+        {{event.description}}
+      </view>
+      <view class="location"> 
+        {{event.address}}
+      </view>
+      <view class="time-start">
+        {{event.start}}
+      </view>
+      <view class="time-end">
+        {{event.end}}
+      </view>
+    </view>
+  <hr/>
+</view>
+
 
 

@@ -138,5 +138,12 @@ hr {
   margin-left:50rpx;
   color:white;
   font-weight:350;
+}
 
+.explanation {
+  color: #343F5E;
+}
+
+.explanation-container{
+  display:flex;
 }

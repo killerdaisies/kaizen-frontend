@@ -45,9 +45,9 @@
     <hr/>
   </view>
 </view>
-<view wx:if = "{{events.length < 1}}">
-  You can add some events here (click the button on the top right)
-</view>
+<view class="explanation-container" wx:if = "{{events.length < 1}}">
+  <text class="explanation"> 点击上方加号按钮 添加新事项 </text>
+</view> 
 <button bindtap="addTap" style="background-image: url('../images/new-add.png'); background-size: cover;"> </button>
 
 

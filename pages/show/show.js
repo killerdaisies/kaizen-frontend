@@ -79,32 +79,31 @@ Page({
       },
       success: (res) => {
         wx.redirectTo({
-          url: '/pages/show/show?id=' + page.data.event_id,
-        })
+          url: '/pages/show/show?id=' + page.data.event_id
+        });
       }
     });
-
-//   navigateTo: function(e) {
-//     console.log("e", e)
-//     console.log("j", e.currentTarget.dataset.address)
-//     console.log("q", e.currentTarget.latitude)
-//     let address = e.currentTarget.dataset.address
-//     let latitude = e.currentTarget.dataset.latitude
-//     let longitude = e.currentTarget.dataset.longitude
-//     wx.getLocation({
-//       type: 'gcj02', //Returns latitudes and longitudes that can be used for wx.openLocation
-//       success: function (res) {
-//         // var latitude = res.latitude
-//         // var longitude = res.longitude
-//         wx.openLocation({
-//           latitude: latitude,
-//           longitude: longitude,
-//           scale: 28,
-//           address: address
-//         })
-//       }
-//     })
-
+  },
+  navigateTo: function (e) {
+    console.log("e", e)
+    console.log("j", e.currentTarget.dataset.address)
+    console.log("q", e.currentTarget.latitude)
+    let address = e.currentTarget.dataset.address
+    let latitude = e.currentTarget.dataset.latitude
+    let longitude = e.currentTarget.dataset.longitude
+    wx.getLocation({
+      type: 'gcj02', //Returns latitudes and longitudes that can be used for wx.openLocation
+      success: function (res) {
+        // var latitude = res.latitude
+        // var longitude = res.longitude
+        wx.openLocation({
+          latitude: latitude,
+          longitude: longitude,
+          scale: 28,
+          address: address
+        })
+      }
+    })
   },
 
   viewParticipants: function (e) {

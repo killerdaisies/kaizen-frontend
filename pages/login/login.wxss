@@ -19,7 +19,10 @@
 .usermotto {
   margin-top: 200px;
 }
-
+.welcome{
+  color: #29527D;
+  font-size: 36px;
+}
 .container {
   width: 100%;
   height: 100vh;
@@ -28,10 +31,10 @@
 }
 
 .intro {
-  color: grey;
-  top: 38%;
+  color:rgba(52, 63, 94, 0.56);
+  top: 36%;
   position: absolute;
-
+  right:20%;
 }
 
 .add {

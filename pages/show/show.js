@@ -84,7 +84,8 @@ Page({
       }
     });
   },
-  navigateTo: function (e) {
+
+  navigateTo: function(e) {
     console.log("e", e)
     console.log("j", e.currentTarget.dataset.address)
     console.log("q", e.currentTarget.latitude)
@@ -104,6 +105,7 @@ Page({
         })
       }
     })
+
   },
 
   viewParticipants: function (e) {

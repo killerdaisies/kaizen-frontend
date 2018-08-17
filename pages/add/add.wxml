@@ -6,26 +6,10 @@
   </view>
   <view wx:if = "{{photo.length < 1}}">
     <view class="add-avatar">
-      <button class= "add-button" bindtap="pickImage"  style="background-image: url('../images/camera.png'); background-size: cover;">  
+      <button class= "add-button" bindtap="pickImage"  style="background-image: url('../images/whitecamera.png'); background-size: cover;">  
       </button>
     </view>
   </view>
-</view>
-
-<view class="form">
-<!-- <template name="form" data="{{data}}"> -->
-  <form bindsubmit="bindSubmit">
-    <view class="title-location">
-      <view class="section">
-        <textarea value="{{description}}" style="input-size" class="input-height" name="description"  maxlength="-1" auto-height placeholder='Title'/>
-      </view>
-
-      <!-- <textarea value="{{address}}" style="input-size" class="input-height" name="address" maxlength="-1" auto-height placeholder='Location'/> -->
-      <button class="btn-location" bindtap="chooseLocation">
-        Location
-      </button>
-    </view>
-  </form>
 </view>
 
 <view class="form">

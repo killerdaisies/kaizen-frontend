@@ -1,31 +1,43 @@
 /* pages/list/list.wxss */
 .page-container{
-  border: solid grey;
-  height: 500px;
-  width: 100%;
-  top: 250rpx;
-  position: absolute;
-  margin-top: 20rpx;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  width: 100%;
 }
 
-
-.card-title{
-  border-bottom: solid grey;
-}
-
-.card-title .name{
-  font-size: 20px;
-  padding: 10px;
+.guest-list{
+  text-align:center;
+  font-size:30px;
+  font-weight:350;
+  margin:8rpx 0rpx 50rpx 0rp;
 }
 
 .avatar-mini{
   border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  border: solid grey;
-  top: 15rpx;
-  position: relative;
-  margin-right: 10rpx
+  height: 35px;
+  width: 35px;
+  margin-right: 26rpx;
+}
+
+.card-box{
+  padding-top: 10rpx;
+  border-bottom:1px solid rgba(0, 0, 0, 0.12);
+  /* border:1px solid rgba(0, 0, 0, 0.12); */
+  display: flex;
+  padding:15rpx 24rpx;
+  align-items:center;
+}
+
+.card-container{
+  margin-top: 35rpx;
+}
+
+Page{
+  color: #343F5E;
+}
+
+.avatar-name{
+  /* margin-bottom:25rpx; */
+  font-size: 18px;
 }

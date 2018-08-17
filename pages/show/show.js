@@ -79,11 +79,12 @@ Page({
       },
       success: (res) => {
         wx.redirectTo({
-          url: '/pages/show/show?id=' + page.data.event_id,
-        })
+          url: '/pages/show/show?id=' + page.data.event_id
+        });
       }
     });
   },
+
   navigateTo: function(e) {
     console.log("e", e)
     console.log("j", e.currentTarget.dataset.address)

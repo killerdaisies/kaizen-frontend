@@ -1,7 +1,7 @@
 <!--pages/login/login.wxml-->
 <view class="container" style="background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/fs/f885de30425803.5622660bd82ca.jpg)" >
   <view class="userinfo">
-    Welcome to Kaizen
+    <text class="welcome"> Welcome to Kaizen </text>
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
@@ -9,7 +9,7 @@
     </block>
   </view>
   <view class="intro">
-    Simplify your life, continuously   
+    <text class="slogan"> Simplify your life, continuously. </text>
   </view> 
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>

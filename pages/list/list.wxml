@@ -1,19 +1,12 @@
 <!--pages/list/list.wxml-->
-<text>Guest List</text>
-
 <view class="page-container">
-  <view class='Kunta' wx:for="{{booked_users}}" wx:for-item="user" wx:key="user.id"     data-item= "{{user.id}}">
-    <view class="card-title">
-
-      <view class="name">
-        <image class="avatar-mini" src="{{user.avatar_url}}"></image>
-          {{user.wechat_name}}
-      </view>
-
-      <view class="card-mainInfo">
-
-      </view>
+  <text class="guest-list">Guest List</text>
+  <view class="card-container">
+    <view class="Kunta card-box" wx:for="{{booked_users}}" wx:for-item="user" wx:key="user.id"     data-item= "{{user.id}}">
+          <image class="avatar-mini" src="{{user.avatar_url}}"></image>
+           <text class="avatar-name"> {{user.wechat_name}} </text> 
     </view>
+
   </view>
 </view>
 

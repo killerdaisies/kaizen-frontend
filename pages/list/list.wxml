@@ -6,8 +6,6 @@
           <image class="avatar-mini" src="{{user.avatar_url}}"></image>
            <text class="avatar-name"> {{user.wechat_name}} </text> 
     </view>
-
   </view>
 </view>
-
 

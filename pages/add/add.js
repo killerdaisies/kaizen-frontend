@@ -93,7 +93,19 @@ Page({
     console.log(this.data)
   },
 
-  pickImage: function () {
+  uploadPromise: function (tempFilePath) {
+    return new Promise((resolve, reject) => {
+      new AV.File('file-name', {
+        blob: {
+          uri: tempFilePath,
+        },
+      }).save()
+        .then(file => resolve(file.url()))
+        .catch(e => reject(e));
+    })
+  },
+
+pickImage: function () {
     let page = this
     wx.chooseImage({
       count: 1,
@@ -119,6 +131,32 @@ Page({
     console.log("pagedata",page.data)
   },
 
+  pickImage: function () {
+    let page = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        let tempFilePath = res.tempFilePaths[0]
+        page.uploadPromise(tempFilePath).then(res => {
+          console.log("you can execute anything here")
+          return res
+        }).then(res => {
+          console.log("or..")
+          return res
+        }).then(res => {
+          console.log(res)
+          page.setData({ photo: res })
+        })
+        // page.setData({
+        //   imageUrl: res.tempFilePaths[0]
+        // })
+      }
+    })
+    console.log("pagedata", page.data)
+  },
+  
   uploadPromise: function (tempFilePath) {
     return new Promise((resolve, reject) => {
       new AV.File('file-name', {

@@ -6,7 +6,7 @@
   </view>
   <view wx:if = "{{photo.length < 1}}">
     <view class="add-avatar">
-      <button class= "add-button" bindtap="pickImage"  style="background-image: url('../images/whitecamera.png'); background-size: cover;">  
+      <button class= "add-button" bindtap="pickImage"  style="background-image: url('../images/whitecamera.png');">  
       </button>
     </view>
   </view>

@@ -13,7 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-let page = this;
+    let page = this;
     let event_id = options.id;
     let userInfo = app.globalData.userInfo
     let currentUserId = app.globalData.userId

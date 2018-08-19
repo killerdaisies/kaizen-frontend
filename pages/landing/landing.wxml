@@ -12,14 +12,12 @@
 </view> -->
 
 <view class="top-section-container"> 
-    <view class="top-section" style="background-image: url(../images/kaizenlandingbackground.jpg), linear-gradient( 68.8deg,  rgba(119,202,189,0.5) 17.9%, rgba(0,0,0,1) 93.1% );">
+    <view class="top-section" style="background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/fs/f885de30425803.5622660bd82ca.jpg), linear-gradient( 68.8deg,  rgba(119,202,189,0.5) 17.9%, rgba(0,0,0,1) 93.1% );">
       <view class="title">
         Kaizen 
       </view>
       <view class="calender-title">
         Your personal calendar 
-      </view>
-      <view class="transparent-container">
       </view>
     </view>
 </view>
@@ -48,6 +46,4 @@
 <view class="explanation-container" wx:if = "{{events.length < 1}}">
   <text class="explanation"> 点击上方加号按钮 添加新事项 </text>
 </view> 
-<button bindtap="addTap" style="background-image: url('../images/new-add.png'); background-size: cover;"> </button>
-
-
+<button bindtap="addTap" style="background-image: url('https://png.icons8.com/wired/50/ffffff/plus.png'); background-size: cover;"> </button>
